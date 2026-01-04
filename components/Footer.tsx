@@ -74,16 +74,17 @@ export default function Footer() {
 
           {/* 2. Harita */}
           <div className="lg:w-2/3 h-80 rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group">
-            {/* GÜNCELLEME: Aşağıdaki src linki Google Maps'in "Konya Karatay" 
-                için verdiği gerçek embed linkidir. Artık harita görünecektir.
+            {/* GÜNCELLEME: Aşağıdaki link "maps.google.com/maps?q=..." formatındadır.
+                Bu format API key istemez ve iframe içinde çalışmaya izin verir.
+                Konum: Bey Plaza, Konya
             */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12595.688265691077!2d32.50296716945802!3d37.87893450974861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d08581e2270927%3A0x2444390466336307!2sKaratay%2C%20Konya!5e0!3m2!1str!2str!4v1704401837000!5m2!1str!2str"
+              src="https://maps.google.com/maps?q=Bey%20Plaza%20Konya&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{
                 border: 0,
-                // Haritayı sitenin karanlık temasına uydurmak için filtreler:
+                // Harita yine sitenin koyu temasına uygun grayscale (gri) tonlarda açılacak
                 filter: "grayscale(100%) invert(90%) contrast(0.83)",
               }}
               allowFullScreen={true}
