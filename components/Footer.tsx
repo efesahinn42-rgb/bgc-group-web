@@ -74,11 +74,11 @@ export default function Footer() {
 
           {/* 2. Harita (KONYA - Bey Plaza Konumu) */}
           <div className="lg:w-2/3 h-80 rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group">
-            {/* Konya Bey Plaza Koordinatları ve Harita Embed Linki.
-                    Filtreler (Grayscale & Invert) haritayı koyu renk yapar.
-                */}
+            {/* DÜZELTME YAPILDI: 
+                Bey Plaza Konya adresi için çalışan iframe linki eklendi.
+            */}
             <iframe
-              src="https://maps.google.com/maps?q=Bey%20Plaza%20Karatay%20Konya&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Bey%20Plaza%2C%20Karatay%2C%20Konya&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{
@@ -89,6 +89,7 @@ export default function Footer() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="group-hover:filter-none transition-all duration-500"
+              title="BGC Group Konum"
             ></iframe>
 
             {/* Harita üzerine estetik kırmızı katman */}
