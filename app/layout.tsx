@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Manrope } from "next/font/google";
-import Navbar from "@/components/Navbar"; // <-- Navbar'ı buraya dahil ettik
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 // Başlık Fontu: Otoriter ve Şık (Montserrat)
@@ -27,14 +27,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    /* KRİTİK DÜZELTME: 
+      className="dark" buraya eklendi. 
+      Bu, Tailwind'e "Kullanıcının ayarı ne olursa olsun bu site karanlıktır" der.
+    */
+    <html lang="tr" className="dark">
       <body
         className={`${montserrat.variable} ${manrope.variable} antialiased bg-[#0f172a] text-white`}
       >
-        {/* Navbar'ı en üste koyduk ki her sayfada görünsün */}
+        {/* Navbar her sayfada sabit */}
         <Navbar />
 
-        {/* Sayfa içerikleri (Hero vb.) buraya gelecek */}
+        {/* Sayfa içerikleri */}
         {children}
       </body>
     </html>
