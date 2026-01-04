@@ -74,17 +74,16 @@ export default function Footer() {
 
           {/* 2. Harita */}
           <div className="lg:w-2/3 h-80 rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group">
-            {/* GÜNCELLEME: Aşağıdaki link "maps.google.com/maps?q=..." formatındadır.
-                Bu format API key istemez ve iframe içinde çalışmaya izin verir.
-                Konum: Bey Plaza, Konya
+            {/* GÜNCELLENEN KISIM: 
+                Link yapısı 'maps.google.com/maps?q=...&output=embed' formatına çevrildi.
+                Bu format iframe içinde güvenle çalışır ve bağlantı hatası vermez.
             */}
             <iframe
-              src="https://maps.google.com/maps?q=Bey%20Plaza%20Konya&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Bey%20Plaza%20Konya&t=m&z=15&output=embed&iwloc=near"
               width="100%"
               height="100%"
               style={{
                 border: 0,
-                // Harita yine sitenin koyu temasına uygun grayscale (gri) tonlarda açılacak
                 filter: "grayscale(100%) invert(90%) contrast(0.83)",
               }}
               allowFullScreen={true}
