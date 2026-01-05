@@ -1,26 +1,50 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Renk Paleti Tanımları */
+  /* Ana Zemin: Premium Antrasit (#09090b) */
+  --background: #09090b;
+  /* Yazı Rengi: Kırık Beyaz (#ededed) */
+  --foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Tüm site için yumuşak kaydırma */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  /* Yedek font ailesi */
   font-family: Arial, Helvetica, sans-serif;
+
+  /* Yazı Netleştirme (Apple ve Yüksek Çözünürlüklü ekranlar için) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* MOBİL UYUM İÇİN HAYATİ AYAR */
+  /* Sağa sola taşmayı kesin olarak engeller */
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Eğer kaydırma çubuğunu (scrollbar) da siteye uydurmak istersen (İsteğe bağlı) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626; /* Hover olunca marka kırmızısı */
 }

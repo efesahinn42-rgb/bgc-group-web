@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaArrowRight, FaShieldAlt, FaCarCrash, FaCar } from "react-icons/fa"; // FaCar eklendi
+import { FaArrowRight, FaShieldAlt, FaCarCrash, FaCar } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-bgc-dark flex items-center justify-center">
+    <div className="relative min-h-screen w-full overflow-hidden bg-bgc-dark flex items-center justify-center pt-28 pb-12 md:py-0">
       {/* 1. ARKA PLAN */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 h-full w-full">
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
           alt="BGC Plaza"
@@ -25,39 +25,41 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h2 className="text-bgc-red font-serif font-semibold tracking-[0.2em] text-sm md:text-base mb-4 uppercase">
+          <h2 className="text-bgc-red font-serif font-semibold tracking-[0.2em] text-xs md:text-base mb-4 uppercase">
             BGC Group Holdings
           </h2>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6">
+
+          {/* MOBİL İÇİN FONT AYARI: text-4xl ile taşmayı önledik */}
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 leading-tight">
             GÜCÜN <br />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">
               MİMARLARI
             </span>
           </h1>
-          <p className="font-sans text-gray-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-            Sigorta, asistans ve filo yönetimiyle hayatın her yolunda
+
+          <p className="font-sans text-gray-300 text-base md:text-xl max-w-2xl mx-auto font-light leading-relaxed px-4">
+            Sigorta, Assist ve Filo yönetimiyle hayatın her yolunda
             yanınızdayız.
           </p>
         </motion.div>
 
-        {/* 3. KARTLAR ALANI (3'lü Grid Yapısı) */}
+        {/* 3. KARTLAR ALANI */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          // Değişiklik: md:grid-cols-3 yaptık ve max-width'i artırdık
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
-          {/* KART 1: SİGORTA (Kırmızı Vurgu) */}
+          {/* KART 1: SİGORTA */}
           <a
             href="https://bgcsigorta.com.tr"
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-bgc-red/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-bgc-red/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]"
           >
             <div className="flex items-center justify-between mb-4">
-              <FaShieldAlt className="text-3xl text-gray-400 group-hover:text-bgc-red transition-colors" />
+              <FaShieldAlt className="text-2xl md:text-3xl text-gray-400 group-hover:text-bgc-red transition-colors" />
               <FaArrowRight className="text-gray-500 group-hover:translate-x-2 transition-transform duration-300" />
             </div>
-            <h3 className="text-left font-serif text-2xl font-bold text-white mb-2">
+            <h3 className="text-left font-serif text-xl md:text-2xl font-bold text-white mb-2">
               BGC Sigorta
             </h3>
             <p className="text-left text-gray-400 text-sm font-light">
@@ -65,33 +67,33 @@ export default function Hero() {
             </p>
           </a>
 
-          {/* KART 2: ASİST (Mavi Vurgu) */}
+          {/* KART 2: ASİST */}
           <a
             href="#"
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
           >
             <div className="flex items-center justify-between mb-4">
-              <FaCarCrash className="text-3xl text-gray-400 group-hover:text-blue-500 transition-colors" />
+              <FaCarCrash className="text-2xl md:text-3xl text-gray-400 group-hover:text-blue-500 transition-colors" />
               <FaArrowRight className="text-gray-500 group-hover:translate-x-2 transition-transform duration-300" />
             </div>
-            <h3 className="text-left font-serif text-2xl font-bold text-white mb-2">
-              BGC Asist
+            <h3 className="text-left font-serif text-xl md:text-2xl font-bold text-white mb-2">
+              BGC Assist
             </h3>
             <p className="text-left text-gray-400 text-sm font-light">
               7/24 yol yardım ve teknik destek hizmetleri.
             </p>
           </a>
 
-          {/* KART 3: FİLO (Kehribar/Altın Vurgu - YENİ EKLENDİ) */}
+          {/* KART 3: FİLO */}
           <a
             href="https://bgcfilo.com.tr"
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
           >
             <div className="flex items-center justify-between mb-4">
-              <FaCar className="text-3xl text-gray-400 group-hover:text-amber-500 transition-colors" />
+              <FaCar className="text-2xl md:text-3xl text-gray-400 group-hover:text-amber-500 transition-colors" />
               <FaArrowRight className="text-gray-500 group-hover:translate-x-2 transition-transform duration-300" />
             </div>
-            <h3 className="text-left font-serif text-2xl font-bold text-white mb-2">
+            <h3 className="text-left font-serif text-xl md:text-2xl font-bold text-white mb-2">
               BGC Filo
             </h3>
             <p className="text-left text-gray-400 text-sm font-light">

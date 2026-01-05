@@ -3,14 +3,13 @@ import { Montserrat, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-// Başlık Fontu: Otoriter ve Şık (Montserrat)
+// Font Ayarları (Aynen korundu)
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700"],
   variable: "--font-montserrat",
 });
 
-// Metin Fontu: Okunaklı ve Modern (Manrope)
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -27,18 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    /* KRİTİK DÜZELTME: 
-      className="dark" buraya eklendi. 
-      Bu, Tailwind'e "Kullanıcının ayarı ne olursa olsun bu site karanlıktır" der.
+    /* 1. className="dark": Karanlık modu zorlar.
+       2. scroll-smooth: Linklere tıklayınca sayfa yumuşakça kayar.
     */
-    <html lang="tr" className="dark">
+    <html lang="tr" className="dark scroll-smooth">
       <body
-        className={`${montserrat.variable} ${manrope.variable} antialiased bg-[#0f172a] text-white`}
+        className={`
+          ${montserrat.variable} 
+          ${manrope.variable} 
+          antialiased 
+          bg-[#09090b] /* Yeni Premium Antrasit Rengi (Globals.css ile uyumlu) */
+          text-white 
+          overflow-x-hidden /* MOBİL İÇİN KRİTİK: Sağa sola taşmayı engeller */
+        `}
       >
-        {/* Navbar her sayfada sabit */}
+        {/* Navbar Sabit */}
         <Navbar />
 
-        {/* Sayfa içerikleri */}
+        {/* Sayfa İçeriği */}
         {children}
       </body>
     </html>
