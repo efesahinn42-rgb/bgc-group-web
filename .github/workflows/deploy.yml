@@ -13,7 +13,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }} # Password yerine Key kullanıyoruz
           script: |
             cd /root/BGC-GROUP.COM.TR
             git pull origin main
