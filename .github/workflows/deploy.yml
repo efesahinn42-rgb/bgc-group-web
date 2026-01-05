@@ -2,7 +2,7 @@ name: Deploy Next.js to DigitalOcean
 
 on:
   push:
-    branches: [main] # Sadece main branch'e push yapınca çalışır
+    branches: [main]
 
 jobs:
   deploy:
@@ -15,8 +15,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd /root/bgcgroup
+            cd /root/BGC-GROUP.COM.TR
             git pull origin main
             npm install
             npm run build
-            pm2 restart bgc-app # PM2 isminizle aynı olmalı
+            pm2 restart bgcgroup || pm2 start npm --name "bgcgroup" -- start
