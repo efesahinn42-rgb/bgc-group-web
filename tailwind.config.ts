@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  // Sistem ayarını (Light/Dark) görmezden gelip manuel kontrol sağlar
+  // Bu ayar kalmalı, sistem ayarını görmezden gelmemizi sağlıyor
   darkMode: "class",
 
   content: [
@@ -13,17 +13,20 @@ const config: Config = {
     extend: {
       colors: {
         bgc: {
-          // PROJE ANA RENGİ (Premium Antrasit - Apple/Vercel Style)
-          dark: "#09090b",
+          // ESKİSİ: dark: "#0f172a", (Bu lacivertti)
 
-          // MARKA RENGİ (BGC Kırmızısı)
+          // YENİ SEÇENEK 1 (Tavsiyem - Modern Antrasit):
+          dark: "#09090b", // Hafif sıcak, simsiyah olmayan premium koyu ton
+
+          // YENİ SEÇENEK 2 (Tamamen Gri Antrasit):
+          // dark: "#171717",
+
           red: "#dc2626",
-
-          // CAM EFEKTİ İÇİN ZEMİN
           glass: "rgba(255, 255, 255, 0.05)",
         },
       },
       fontFamily: {
+        // globals.css ile uyumlu değişken isimleri
         sans: ["var(--font-manrope)", "sans-serif"],
         serif: ["var(--font-montserrat)", "serif"],
       },
