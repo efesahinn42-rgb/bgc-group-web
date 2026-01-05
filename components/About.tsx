@@ -2,13 +2,17 @@
 
 import { motion } from "framer-motion";
 
-// Animasyon ayarları
+// DÜZELTME: 'ease' özelliğini kaldırdık, TypeScript hatası çözüldü.
+// Varsayılan animasyon zaten yumuşaktır.
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 },
+    transition: {
+      duration: 0.8,
+      staggerChildren: 0.2, // Sırayla gelme efekti
+    },
   },
 };
 
@@ -21,7 +25,6 @@ export default function About() {
   return (
     <section
       id="hakkimizda"
-      // MOBİL DÜZELTME: py-32 yerine mobilde py-20, masaüstünde py-32 yapıldı.
       className="relative py-20 md:py-32 overflow-hidden bg-bgc-dark"
     >
       {/* --- ESTETİK ARKA PLAN (CSS Grid) --- */}
@@ -55,7 +58,6 @@ export default function About() {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Cam Kutu */}
-          {/* MOBİL DÜZELTME: Padding mobilde p-8, masaüstünde p-16 yapıldı */}
           <div className="backdrop-blur-sm bg-white/5 border border-white/5 rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden">
             {/* Üst Parlama Çizgisi */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
@@ -69,7 +71,6 @@ export default function About() {
 
             <motion.h3
               variants={itemVariants}
-              // MOBİL DÜZELTME: Font boyutu telefonda text-3xl, pc'de text-5xl
               className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 md:mb-8 leading-tight"
             >
               "Güven, Tecrübe ve Teknolojinin Kesişim Noktası"
