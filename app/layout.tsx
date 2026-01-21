@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import WebVitalsClient from "./WebVitalsClient";
 
 // Font Ayarları (Aynen korundu)
 const montserrat = Montserrat({
@@ -35,11 +36,10 @@ export default function RootLayout({
           ${montserrat.variable} 
           ${manrope.variable} 
           antialiased 
-          bg-[#09090b] /* Yeni Premium Antrasit Rengi (Globals.css ile uyumlu) */
-          text-white 
-          overflow-x-hidden /* MOBİL İÇİN KRİTİK: Sağa sola taşmayı engeller */
+          font-sans
         `}
       >
+        <WebVitalsClient />
         {/* Navbar Sabit */}
         <Navbar />
 

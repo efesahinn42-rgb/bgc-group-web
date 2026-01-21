@@ -16,7 +16,7 @@ const services = [
     colorCode: "#dc2626", // BGC Kırmızısı
     icon: <FaShieldAlt className="text-3xl" />,
     image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=70",
     link: "https://bgcsigorta.com.tr",
   },
   {
@@ -27,7 +27,7 @@ const services = [
     colorCode: "#f59e0b", // Amber / Turuncu
     icon: <FaCar className="text-3xl" />,
     image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070",
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=70",
     link: "https://bgcfilo.com.tr",
   },
   {
@@ -38,7 +38,7 @@ const services = [
     colorCode: "#2563eb", // Mavi
     icon: <FaCarCrash className="text-3xl" />,
     image:
-      "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=2070",
+      "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1600&q=70",
     link: "bgcassist.com.tr",
   },
 ];
@@ -91,6 +91,7 @@ export default function Subsidiaries() {
               src={service.image}
               alt={service.title}
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className={`object-cover transition-transform duration-700
                 ${
                   activeId === service.id

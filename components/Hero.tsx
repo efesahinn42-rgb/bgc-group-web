@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaShieldAlt, FaCarCrash, FaCar } from "react-icons/fa";
 
@@ -8,10 +9,13 @@ export default function Hero() {
     <div className="relative min-h-screen w-full overflow-hidden bg-bgc-dark flex items-center justify-center pt-28 pb-12 md:py-0">
       {/* 1. ARKA PLAN */}
       <div className="absolute inset-0 h-full w-full">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+        <Image
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=70&auto=format&fit=crop"
           alt="BGC Plaza"
-          className="w-full h-full object-cover opacity-50 grayscale scale-105"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-50 grayscale scale-105"
         />
         {/* Antrasit Perde */}
         <div className="absolute inset-0 bg-gradient-to-b from-bgc-dark/80 via-bgc-dark/50 to-bgc-dark/90" />

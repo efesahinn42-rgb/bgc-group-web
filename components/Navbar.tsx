@@ -1,24 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollTickingRef = useRef(false);
 
-  // 1. SCROLL DİNLEME: Sayfa aşağı kayınca Navbar'ın rengi değişsin
+  // 1. SCROLL DİNLEME: Sayfa aşağı kayınca Navbar'ın rengi değişsin (performanslı)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      if (scrollTickingRef.current) return;
+      scrollTickingRef.current = true;
+
+      window.requestAnimationFrame(() => {
+        const scrolled = window.scrollY > 50;
+        setIsScrolled((prev) => {
+          // Aynı değerse re-render tetikleme
+          if (prev === scrolled) return prev;
+          return scrolled;
+        });
+        scrollTickingRef.current = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -38,6 +46,17 @@ export default function Navbar() {
       });
     }
   };
+
+  // 3. MOBİL MENÜ AÇIKKEN BODY SCROLL KİLİTLEME
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -74,12 +93,12 @@ export default function Navbar() {
               onClick={() => scrollToSection("home")}
             />
             <NavButton
-              title="İŞTİRAKLERİMİZ"
-              onClick={() => scrollToSection("istirakler")}
-            />
-            <NavButton
               title="HAKKIMIZDA"
               onClick={() => scrollToSection("hakkimizda")}
+            />
+            <NavButton
+              title="İŞTİRAKLERİMİZ"
+              onClick={() => scrollToSection("istirakler")}
             />
             <NavButton
               title="İLETİŞİM"
@@ -118,12 +137,12 @@ export default function Navbar() {
                 onClick={() => scrollToSection("home")}
               />
               <MobileNavLink
-                title="İŞTİRAKLERİMİZ"
-                onClick={() => scrollToSection("istirakler")}
-              />
-              <MobileNavLink
                 title="HAKKIMIZDA"
                 onClick={() => scrollToSection("hakkimizda")}
+              />
+              <MobileNavLink
+                title="İŞTİRAKLERİMİZ"
+                onClick={() => scrollToSection("istirakler")}
               />
               <MobileNavLink
                 title="İLETİŞİM"

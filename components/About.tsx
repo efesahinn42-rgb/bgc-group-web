@@ -44,9 +44,9 @@ export default function About() {
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-bgc-dark via-transparent to-bgc-dark" />
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#09090b_100%)]" />
 
-      {/* 3. Katman: Dekoratif Glow Topları */}
-      <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-blue-500/10 rounded-full blur-[80px] md:blur-[100px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-bgc-red/10 rounded-full blur-[80px] md:blur-[100px] animate-pulse delay-1000" />
+      {/* 3. Katman: Dekoratif Glow Topları (mobilde gizli, GPU yükünü azaltmak için) */}
+      <div className="hidden md:block absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-blue-500/10 rounded-full blur-[80px] md:blur-[100px] animate-pulse" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-bgc-red/10 rounded-full blur-[80px] md:blur-[100px] animate-pulse delay-1000" />
 
       {/* --- İÇERİK --- */}
       <div className="container mx-auto px-6 relative z-10 flex justify-center items-center">

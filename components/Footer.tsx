@@ -20,7 +20,7 @@ export default function Footer() {
     >
       {/* --- DEKORATİF ARKA PLAN (Dev BGC Yazısı) --- */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden select-none z-0">
-        <span className="text-[20rem] md:text-[30rem] font-bold text-white/[0.02] leading-none absolute -bottom-24 left-1/2 -translate-x-1/2 whitespace-nowrap font-serif">
+        <span className="hidden md:block text-[20rem] lg:text-[30rem] font-bold text-white/[0.02] leading-none absolute -bottom-24 left-1/2 -translate-x-1/2 whitespace-nowrap font-serif">
           BGC
         </span>
       </div>
