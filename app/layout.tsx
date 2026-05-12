@@ -1,24 +1,31 @@
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 import type { Metadata } from "next";
-import { Montserrat, Manrope } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import "./globals.css";
-import WebVitalsClient from "./WebVitalsClient";
-
-// Font Ayarları (Aynen korundu)
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-montserrat",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-});
 
 export const metadata: Metadata = {
-  title: "BGC Group | Geleceği Şekillendiriyoruz",
-  description: "BGC Sigorta ve BGC Asist hizmetlerini barındıran çatı kuruluş.",
+  metadataBase: new URL("https://bgcgroup.com.tr"),
+  title: {
+    default: "BGC Group | Geleceğe Güvenle Taşır",
+    template: "%s | BGC Group",
+  },
+  description:
+    "BGC Group; sigorta, asistans ve kurumsal mobilite alanlarında uzmanlaşan şirketlerini ortak güven standardı altında buluşturan premium çatı markadır.",
+  openGraph: {
+    title: "BGC Group | Geleceğe Güvenle Taşır",
+    description:
+      "BGC Group; sigorta, asistans ve kurumsal mobilite alanlarında uzmanlaşan şirketlerini ortak güven standardı altında buluşturan premium çatı markadır.",
+    url: "https://bgcgroup.com.tr",
+    siteName: "BGC Group",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BGC Group | Geleceğe Güvenle Taşır",
+    description:
+      "BGC Group; sigorta, asistans ve kurumsal mobilite alanlarında uzmanlaşan şirketlerini ortak güven standardı altında buluşturan premium çatı markadır.",
+  },
 };
 
 export default function RootLayout({
@@ -27,24 +34,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    /* 1. className="dark": Karanlık modu zorlar.
-       2. scroll-smooth: Linklere tıklayınca sayfa yumuşakça kayar.
-    */
-    <html lang="tr" className="dark scroll-smooth">
-      <body
-        className={`
-          ${montserrat.variable} 
-          ${manrope.variable} 
-          antialiased 
-          font-sans
-        `}
-      >
-        <WebVitalsClient />
-        {/* Navbar Sabit */}
-        <Navbar />
-
-        {/* Sayfa İçeriği */}
-        {children}
+    <html lang="tr" className="scroll-smooth">
+      <body className="antialiased font-sans">
+        <div className="relative isolate flex min-h-screen flex-col overflow-x-clip">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

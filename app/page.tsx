@@ -1,24 +1,15 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Subsidiaries from "@/components/Subsidiaries";
-import Footer from "@/components/Footer";
+import CompaniesSection from "@/components/CompaniesSection";
+import ContactBand from "@/components/ContactBand";
+import HeroSection from "@/components/HeroSection";
+import VisionSection from "@/components/VisionSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bgc-dark">
-      {/* 1. Kurumsal / Giriş Ekranı */}
-      <section id="home">
-        <Hero />
-      </section>
-
-      {/* 2. Hakkımızda */}
-      <About />
-
-      {/* 3. İştiraklerimiz (Detaylı) */}
-      <Subsidiaries />
-
-      {/* 4. İletişim & Footer */}
-      <Footer />
+    <main>
+      <HeroSection />
+      <CompaniesSection />
+      <VisionSection />
+      <ContactBand />
     </main>
   );
 }

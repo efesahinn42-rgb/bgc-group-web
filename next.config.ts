@@ -1,12 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com", // Dikkat: "unsplash.com" değil, "images.unsplash.com" olmalı
-      },
-    ],
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  typescript: {
+    tsconfigPath: "./tsconfig.next.json",
   },
 };
 
