@@ -155,7 +155,7 @@ export const heroIcerigi: HeroIcerigi = {
     etiket: "Şirket Yapımızı İnceleyin",
     href: "#grup-sirketleri",
   },
-  videoSrc: "/media/video/hero-loop.mp4",
+  videoSrc: "https://assets.mixkit.co/videos/5305/5305-720.mp4",
   posterSrc: "/media/photos/hero-architecture.jpg",
   kisaNot: "Tek merkezden koordinasyon, çok sektörlü uzmanlık.",
   ozetMaddeleri: [
