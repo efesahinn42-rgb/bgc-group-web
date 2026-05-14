@@ -15,7 +15,7 @@ export default function ContactBand() {
                 src={iletisimBlogu.gorselSrc}
                 alt={iletisimBlogu.gorselAlt}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[52%_22%]"
                 sizes="(max-width: 1024px) 100vw, 46vw"
               />
             </AnimatedSection>

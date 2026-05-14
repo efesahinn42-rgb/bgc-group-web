@@ -418,8 +418,8 @@ export const iletisimBlogu: IletisimBlokIcerigi = {
     etiket: "İletişime geçin",
     href: "mailto:info@bgcgroup.com.tr",
   },
-  gorselSrc: "/media/photos/advisor-portrait.jpg",
-  gorselAlt: "Kurumsal ilişkiler danışmanı placeholder portresi",
+  gorselSrc: "/media/photos/contact-representative.jpg",
+  gorselAlt: "Kurumsal iletişim için profesyonel kadın temsilci portresi",
 };
 
 export const footerKolonlari: FooterKolonIcerigi[] = [
