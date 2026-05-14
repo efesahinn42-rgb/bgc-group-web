@@ -1,49 +1,88 @@
-import MotionReveal from "@/components/MotionReveal";
-import { iletisimBilgileri } from "@/lib/site-content";
-import { ArrowRight, PhoneCall } from "lucide-react";
-import Link from "next/link";
+import AnimatedSection from "@/components/AnimatedSection";
+import { iletisimBlogu } from "@/lib/site-content";
+import { ArrowRight, Mail, PhoneCall } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactBand() {
   return (
-    <section className="pb-24 pt-8 sm:pb-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <MotionReveal>
-          <div className="relative overflow-hidden rounded-[2.4rem] border border-[color:var(--color-line-strong)] bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(248,244,235,0.92))] px-6 py-10 shadow-[0_28px_80px_rgba(20,32,57,0.10)] sm:px-10 sm:py-12">
-            <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-[rgba(202,170,112,0.18)] blur-3xl" />
+    <section id="iletisim-danismani" className="section-space pt-12">
+      <div className="container-shell">
+        <div className="media-card overflow-hidden bg-[var(--color-panel)]">
+          <div className="grid items-end gap-0 lg:grid-cols-[0.95fr_1.05fr]">
+            <AnimatedSection className="relative min-h-[420px] lg:min-h-[560px]">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0.22)_100%)]" />
+              <Image
+                src={iletisimBlogu.gorselSrc}
+                alt={iletisimBlogu.gorselAlt}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 46vw"
+              />
+            </AnimatedSection>
 
-            <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:var(--color-gold-deep)]">
-                  Kurumsal iletişim
-                </p>
-                <h2 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-[color:var(--color-navy)] sm:text-5xl">
-                  Yeni iş birlikleri için güçlü ve güven veren bir başlangıç
+            <div className="p-6 sm:p-8 lg:p-14">
+              <AnimatedSection className="max-w-2xl">
+                <p className="eyebrow">{iletisimBlogu.etiket}</p>
+                <h2 className="section-title mt-5 max-w-[11ch]">
+                  {iletisimBlogu.baslik}
                 </h2>
-                <p className="mt-5 text-base leading-8 text-[color:var(--color-muted)]">
-                  {iletisimBilgileri.calismaNotu}
-                </p>
-              </div>
+                <p className="lead-text mt-6">{iletisimBlogu.aciklama}</p>
+              </AnimatedSection>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/iletisim"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-navy)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(19,32,57,0.18)] transition hover:-translate-y-0.5"
+              <AnimatedSection delay={0.08} className="mt-7">
+                <div className="flex flex-col gap-4 rounded-[1.7rem] bg-white/70 p-5 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-lg font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+                      {iletisimBlogu.adSoyad}
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--color-muted)]">
+                      {iletisimBlogu.unvan}
+                    </p>
+                  </div>
+                  <a
+                    href={iletisimBlogu.cta.href}
+                    className="solid-button w-full sm:w-auto"
+                  >
+                    {iletisimBlogu.cta.etiket}
+                    <ArrowRight className="h-4 w-4" strokeWidth={2} />
+                  </a>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection
+                delay={0.14}
+                className="mt-6 grid gap-4 sm:grid-cols-2"
+              >
+                <a
+                  href={`mailto:${iletisimBlogu.eposta}`}
+                  className="surface-card flex items-center gap-4 p-5 transition hover:-translate-y-0.5"
                 >
-                  İletişim Sayfasına Geçin
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-brand)] text-white">
+                    <Mail className="h-[18px] w-[18px]" strokeWidth={1.9} />
+                  </span>
+                  <span className="text-sm font-semibold text-[var(--color-ink)]">
+                    {iletisimBlogu.eposta}
+                  </span>
+                </a>
 
                 <a
-                  href={`tel:${iletisimBilgileri.telefon.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-strong)] bg-white/80 px-6 py-3.5 text-sm font-semibold text-[color:var(--color-navy)] transition hover:border-[color:var(--color-gold)] hover:text-[color:var(--color-gold-deep)]"
+                  href={`tel:${iletisimBlogu.telefon.replace(/\s+/g, "")}`}
+                  className="surface-card flex items-center gap-4 p-5 transition hover:-translate-y-0.5"
                 >
-                  <PhoneCall className="h-4 w-4" />
-                  {iletisimBilgileri.telefon}
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-brand)] text-white">
+                    <PhoneCall
+                      className="h-[18px] w-[18px]"
+                      strokeWidth={1.9}
+                    />
+                  </span>
+                  <span className="text-sm font-semibold text-[var(--color-ink)]">
+                    {iletisimBlogu.telefon}
+                  </span>
                 </a>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
-        </MotionReveal>
+        </div>
       </div>
     </section>
   );

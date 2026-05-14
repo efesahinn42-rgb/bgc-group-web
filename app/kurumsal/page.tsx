@@ -1,16 +1,19 @@
-import MotionReveal from "@/components/MotionReveal";
+import AnimatedSection from "@/components/AnimatedSection";
 import PageBanner from "@/components/PageBanner";
 import {
+  agBolumu,
+  anlatiBolumu,
   grupSirketleri,
-  kurumsalBasliklar,
-  kurumsalIlkeler,
+  operasyonBolumu,
 } from "@/lib/site-content";
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Kurumsal",
   description:
-    "BGC Group'un vizyonunu, hizmet yaklaşımını ve iştirakler arası sinerji modelini keşfedin.",
+    "BGC Group kurumsal yapısı, ortak standartları ve grup şirketleri arasındaki koordinasyon yaklaşımı.",
 };
 
 export default function KurumsalPage() {
@@ -18,97 +21,70 @@ export default function KurumsalPage() {
     <main>
       <PageBanner
         eyebrow="Kurumsal"
-        title="Ortak akıl ile yönetilen, güven ile büyüyen bir grup yapısı"
-        description="BGC Group, sektör bazlı uzmanlığın gücünü tek bir kurumsal duruşla birleştirir. Grup yaklaşımımız; karar kalitesi, hizmet standardı ve uzun vadeli değer üretimi üzerinden şekillenir."
-        rozetler={[
-          "Stratejik yönetişim",
-          "Tutarlı hizmet standardı",
-          "İştirakler arası sinerji",
-        ]}
+        title="Tek çatı altında şekillenen kurumsal yapı"
+        description="BGC Group, farklı uzmanlık alanlarını birbirinden koparmadan aynı hizmet standardı ve aynı kurumsal bakış altında hizalayan bir grup yapılanması sunar."
+        rozetler={["Grup koordinasyonu", "Ortak kalite standardı"]}
       />
 
-      <section className="pb-12">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {kurumsalBasliklar.map((madde, index) => (
-              <MotionReveal key={madde.baslik} delay={index * 0.08}>
-                <article className="rounded-[2rem] border border-white/80 bg-white/85 p-7 shadow-[0_18px_48px_rgba(20,32,57,0.08)]">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
-                    Başlık {index + 1}
-                  </p>
-                  <h2 className="mt-3 font-serif text-3xl font-semibold text-[color:var(--color-navy)]">
-                    {madde.baslik}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-[color:var(--color-muted)]">
-                    {madde.aciklama}
-                  </p>
-                </article>
-              </MotionReveal>
-            ))}
-          </div>
+      <section className="section-space">
+        <div className="container-shell grid gap-6 lg:grid-cols-3">
+          <AnimatedSection className="surface-card p-7 sm:p-8">
+            <p className="eyebrow">{anlatiBolumu.etiket}</p>
+            <h2 className="mt-4 text-[2rem] font-medium tracking-[-0.05em] text-[var(--color-ink)]">
+              {anlatiBolumu.baslik}
+            </h2>
+            <p className="lead-text mt-5">{anlatiBolumu.paragrafBir}</p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.08} className="surface-card p-7 sm:p-8">
+            <p className="eyebrow">{operasyonBolumu.etiket}</p>
+            <h2 className="mt-4 text-[2rem] font-medium tracking-[-0.05em] text-[var(--color-ink)]">
+              Operasyon yaklaşımı
+            </h2>
+            <p className="lead-text mt-5">{operasyonBolumu.aciklama}</p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.16} className="surface-card p-7 sm:p-8">
+            <p className="eyebrow">{agBolumu.etiket}</p>
+            <h2 className="mt-4 text-[2rem] font-medium tracking-[-0.05em] text-[var(--color-ink)]">
+              Uzmanlık ağı
+            </h2>
+            <p className="lead-text mt-5">{agBolumu.aciklama}</p>
+          </AnimatedSection>
         </div>
-      </section>
 
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-            <MotionReveal>
-              <div className="rounded-[2.2rem] border border-[color:var(--color-line-strong)] bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(248,244,235,0.92))] p-8 shadow-[0_22px_60px_rgba(20,32,57,0.10)]">
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:var(--color-gold-deep)]">
-                  Kurumsal ilkeler
-                </p>
-                <h2 className="mt-4 font-serif text-4xl font-semibold text-[color:var(--color-navy)]">
-                  Büyümeyi sürdürülebilir hale getiren çalışma disiplini
-                </h2>
-                <div className="mt-8 space-y-5">
-                  {kurumsalIlkeler.map((ilke) => (
-                    <div
-                      key={ilke.baslik}
-                      className="rounded-[1.6rem] border border-white/80 bg-white/88 p-5"
-                    >
-                      <h3 className="font-semibold text-[color:var(--color-navy)]">
-                        {ilke.baslik}
-                      </h3>
-                      <p className="mt-2 text-sm leading-7 text-[color:var(--color-muted)]">
-                        {ilke.aciklama}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </MotionReveal>
+        <div className="container-shell mt-12">
+          <AnimatedSection className="surface-card p-7 sm:p-8 lg:p-10">
+            <p className="eyebrow">Grup şirketleri</p>
+            <div className="mt-5 grid gap-5 lg:grid-cols-3">
+              {grupSirketleri.map((sirket) => (
+                <a
+                  key={sirket.ad}
+                  href={sirket.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-[1.6rem] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-5 transition hover:-translate-y-0.5"
+                >
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                    {sirket.sektor}
+                  </p>
+                  <h3 className="mt-3 text-[1.8rem] font-medium tracking-[-0.04em] text-[var(--color-ink)]">
+                    {sirket.ad}
+                  </h3>
+                  <p className="lead-text mt-4 text-[0.97rem] leading-8">
+                    {sirket.aciklama}
+                  </p>
+                </a>
+              ))}
+            </div>
 
-            <MotionReveal delay={0.08}>
-              <div className="rounded-[2.2rem] border border-white/80 bg-white/85 p-8 shadow-[0_18px_48px_rgba(20,32,57,0.08)]">
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:var(--color-gold-deep)]">
-                  Ekosistem yaklaşımı
-                </p>
-                <h2 className="mt-4 font-serif text-4xl font-semibold text-[color:var(--color-navy)]">
-                  Her iştirak aynı güven çizgisinde konumlanır
-                </h2>
-                <p className="mt-5 text-sm leading-7 text-[color:var(--color-muted)]">
-                  BGC Group, farklı faaliyet alanlarını dağınık bir portföy
-                  olarak değil; ortak hizmet dilini güçlendiren tamamlayıcı bir
-                  yapı olarak ele alır.
-                </p>
-                <div className="mt-8 grid gap-4">
-                  {grupSirketleri.map((sirket) => (
-                    <div
-                      key={sirket.ad}
-                      className="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[color:var(--color-surface)] p-5"
-                    >
-                      <p className="text-sm font-semibold text-[color:var(--color-navy)]">
-                        {sirket.ad}
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-[color:var(--color-muted)]">
-                        {sirket.vurgu}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </MotionReveal>
-          </div>
+            <div className="mt-8">
+              <Link href="/#grup-sirketleri" className="outline-button">
+                Ana sayfadaki akışı görün
+                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </main>

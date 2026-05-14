@@ -1,126 +1,165 @@
-import MotionReveal from "@/components/MotionReveal";
-import { grupSirketleri, heroMetrikleri } from "@/lib/site-content";
+"use client";
+
+import AnimatedSection from "@/components/AnimatedSection";
+import { heroIcerigi } from "@/lib/site-content";
 import {
-  ArrowRight,
-  BriefcaseBusiness,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { MoveDownRight, Pause, Play } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+
+function baglantiHedefiOlustur(href: string) {
+  return href.startsWith("#") ? `/${href}` : href;
+}
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const bolumRef = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
+  const [oynatiliyor, setOynatiliyor] = useState(!reducedMotion);
+  const { scrollYProgress } = useScroll({
+    target: bolumRef,
+    offset: ["start start", "end start"],
+  });
+
+  const medyaOlcegi = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
+  const medyaKayma = useTransform(scrollYProgress, [0, 1], [0, 72]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (reducedMotion || !oynatiliyor) {
+      video.pause();
+      return;
+    }
+
+    void video.play().catch(() => {
+      setOynatiliyor(false);
+    });
+  }, [oynatiliyor, reducedMotion]);
+
+  const videoDurumuDegistir = () => {
+    setOynatiliyor((onceki) => !onceki);
+  };
+
   return (
-    <section className="relative overflow-hidden pb-16 pt-16 sm:pb-24 sm:pt-20">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,rgba(202,170,112,0.18),transparent_42%),radial-gradient(circle_at_top_right,rgba(19,32,57,0.10),transparent_32%)]" />
-      <div className="absolute left-1/2 top-14 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-[rgba(255,255,255,0.78)] blur-3xl" />
-
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-        <MotionReveal className="space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/85 px-4 py-2 text-sm font-medium text-[color:var(--color-muted)] shadow-[0_14px_40px_rgba(20,32,57,0.08)]">
-            <Sparkles className="h-4 w-4 text-[color:var(--color-gold)]" />
-            Premium çatı şirket deneyimi
-          </div>
-
-          <div className="max-w-3xl space-y-6">
-            <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-[color:var(--color-navy)] sm:text-6xl lg:text-7xl">
-              BGC Group:
-              <span className="block text-[color:var(--color-gold-deep)]">
-                Geleceğe Güvenle Taşır
-              </span>
-            </h1>
-            <p className="max-w-2xl text-base leading-8 text-[color:var(--color-muted)] sm:text-lg">
-              BGC Group, farklı sektörlerde liderlik potansiyeli taşıyan
-              şirketlerini tek kurumsal vizyon altında buluşturur; güven,
-              erişilebilirlik ve sürdürülebilir hizmet kalitesini aynı çizgide
-              konumlandırır.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/#grup-sirketlerimiz"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-navy)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(19,32,57,0.18)] transition hover:-translate-y-0.5"
+    <section id="hero" ref={bolumRef} className="section-space pb-10 sm:pb-14">
+      <div className="container-shell">
+        <div className="media-card relative min-h-[78svh] bg-[linear-gradient(135deg,#1b214f_0%,#29337a_62%,#3948a7_100%)] px-6 py-7 sm:px-8 sm:py-8 lg:min-h-[820px] lg:px-14 lg:py-14">
+          <motion.div
+            style={{ scale: medyaOlcegi, y: medyaKayma }}
+            className="absolute inset-0"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_20%)]" />
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover opacity-[0.38]"
+              poster={heroIcerigi.posterSrc}
+              autoPlay={!reducedMotion}
+              muted
+              loop
+              playsInline
+              preload="metadata"
             >
-              Grup Şirketlerimizi İnceleyin
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+              <source src={heroIcerigi.videoSrc} type="video/mp4" />
+            </video>
+          </motion.div>
 
-            <Link
-              href="/kurumsal"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-strong)] bg-white/80 px-6 py-3.5 text-sm font-semibold text-[color:var(--color-navy)] shadow-[0_12px_30px_rgba(20,32,57,0.06)] transition hover:border-[color:var(--color-gold)] hover:text-[color:var(--color-gold-deep)]"
-            >
-              Kurumsal Bakış
-              <BriefcaseBusiness className="h-4 w-4" />
-            </Link>
-          </div>
-        </MotionReveal>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,12,18,0.76)_0%,rgba(14,20,44,0.52)_34%,rgba(31,39,72,0.12)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_38%)]" />
 
-        <MotionReveal className="relative lg:pt-6" delay={0.1}>
-          <div className="absolute -left-10 top-12 hidden h-28 w-28 rounded-full border border-white/70 bg-white/55 blur-sm lg:block" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/82 p-6 shadow-[0_28px_80px_rgba(20,32,57,0.12)] sm:p-8">
-            <div className="absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(202,170,112,0.8),transparent)]" />
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[color:var(--color-muted)]">
-                  Çatı şirket odağı
+          <div className="relative flex h-full flex-col justify-between gap-16">
+            <div className="max-w-[41rem] pt-5 lg:pt-12">
+              <AnimatedSection className="inline-block">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+                  {heroIcerigi.etiket}
                 </p>
-                <h2 className="mt-3 font-serif text-3xl font-semibold text-[color:var(--color-navy)]">
-                  Tek merkezden bütünsel yönetişim
-                </h2>
-              </div>
+              </AnimatedSection>
 
-              <div className="rounded-2xl border border-[color:var(--color-champagne-strong)] bg-[color:var(--color-surface)] p-3">
-                <ShieldCheck className="h-6 w-6 text-[color:var(--color-gold-deep)]" />
-              </div>
-            </div>
+              <AnimatedSection delay={0.08} className="mt-6">
+                <h1 className="display-title max-w-[13ch] text-white">
+                  {heroIcerigi.baslik}
+                </h1>
+              </AnimatedSection>
 
-            <p className="mt-5 text-sm leading-7 text-[color:var(--color-muted)]">
-              Her iştirak, kendi uzmanlık alanında güçlü bir operasyonel yapı
-              sunarken; BGC Group markası bu yetkinlikleri ortak kalite,
-              koordinasyon ve güven standardında bir araya getirir.
-            </p>
+              <AnimatedSection delay={0.14} className="mt-6 max-w-[39rem]">
+                <p className="text-lg leading-8 text-white/[0.72] sm:text-[1.08rem]">
+                  {heroIcerigi.aciklama}
+                </p>
+              </AnimatedSection>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {heroMetrikleri.map((metrik) => (
-                <div
-                  key={metrik.etiket}
-                  className="rounded-[1.6rem] border border-[color:var(--color-line)] bg-[color:var(--color-surface)] p-5"
+              <AnimatedSection
+                delay={0.2}
+                className="mt-10 flex flex-col gap-3 sm:flex-row"
+              >
+                <Link
+                  href={baglantiHedefiOlustur(heroIcerigi.birincilCta.href)}
+                  className="solid-button w-full sm:w-auto"
                 >
-                  <p className="font-serif text-3xl font-semibold text-[color:var(--color-navy)]">
-                    {metrik.deger}
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-[color:var(--color-navy)]">
-                    {metrik.etiket}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-[color:var(--color-muted)]">
-                    {metrik.aciklama}
-                  </p>
+                  {heroIcerigi.birincilCta.etiket}
+                  <MoveDownRight className="h-4 w-4" strokeWidth={2} />
+                </Link>
+                <Link
+                  href={baglantiHedefiOlustur(heroIcerigi.ikincilCta.href)}
+                  className="outline-button w-full border-white/25 bg-transparent text-white hover:border-white hover:text-white sm:w-auto"
+                >
+                  {heroIcerigi.ikincilCta.etiket}
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection
+                delay={0.26}
+                className="mt-12 max-w-2xl border-t border-white/10 pt-8"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/60">
+                  {heroIcerigi.kisaNot}
+                </p>
+                <div className="mt-6 grid gap-5 md:grid-cols-3">
+                  {heroIcerigi.ozetMaddeleri.map((madde) => (
+                    <div key={madde.deger} className="space-y-2">
+                      <p className="text-base font-semibold text-white">
+                        {madde.deger}
+                      </p>
+                      <p className="text-sm leading-7 text-white/[0.62]">
+                        {madde.aciklama}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </AnimatedSection>
             </div>
 
-            <div className="mt-8 rounded-[1.8rem] border border-[color:var(--color-line)] bg-[linear-gradient(135deg,rgba(248,244,235,0.95),rgba(255,255,255,0.88))] p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--color-muted)]">
-                Grup şirketlerimiz
-              </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                {grupSirketleri.map((sirket) => (
-                  <div
-                    key={sirket.ad}
-                    className="rounded-2xl border border-white bg-white/90 px-4 py-4 shadow-[0_10px_24px_rgba(20,32,57,0.05)]"
-                  >
-                    <p className="text-sm font-semibold text-[color:var(--color-navy)]">
-                      {sirket.ad}
-                    </p>
-                    <p className="mt-2 text-xs leading-6 text-[color:var(--color-muted)]">
-                      {sirket.istatistik}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-end justify-between gap-4">
+              <AnimatedSection delay={0.1} direction="none">
+                <div className="hidden rounded-[1.75rem] border border-white/[0.12] bg-white/10 px-5 py-4 text-sm text-white/[0.68] backdrop-blur-md sm:block">
+                  Referansını tek bir grup yapısından alan kurumsal akış.
+                </div>
+              </AnimatedSection>
+
+              <motion.button
+                type="button"
+                onClick={videoDurumuDegistir}
+                whileTap={{ scale: 0.96 }}
+                className="ml-auto inline-flex h-16 w-16 items-center justify-center rounded-[1.4rem] border border-white/[0.15] bg-white text-[var(--color-brand)] shadow-[0_18px_40px_rgba(0,0,0,0.22)] transition hover:-translate-y-0.5"
+                aria-label={oynatiliyor ? "Videoyu duraklat" : "Videoyu oynat"}
+              >
+                {oynatiliyor ? (
+                  <Pause className="h-5 w-5" strokeWidth={2.1} />
+                ) : (
+                  <Play className="h-5 w-5" strokeWidth={2.1} />
+                )}
+              </motion.button>
             </div>
           </div>
-        </MotionReveal>
+        </div>
       </div>
     </section>
   );

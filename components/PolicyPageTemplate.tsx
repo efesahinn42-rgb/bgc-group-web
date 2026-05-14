@@ -26,31 +26,25 @@ export default function PolicyPageTemplate({
         rozetler={["Taslak içerik", "Kurumsal ön bilgilendirme"]}
       />
 
-      <section className="pb-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="section-space">
+        <div className="container-shell">
+          <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
             <MotionReveal>
-              <aside className="rounded-[2rem] border border-white/80 bg-white/85 p-6 shadow-[0_18px_48px_rgba(20,32,57,0.08)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-gold-deep)]">
-                  Önemli not
-                </p>
-                <p className="mt-4 text-sm leading-7 text-[color:var(--color-muted)]">
-                  {not}
-                </p>
+              <aside className="surface-card p-7 sm:p-8">
+                <p className="eyebrow">Önemli not</p>
+                <p className="lead-text mt-4 text-[0.98rem] leading-8">{not}</p>
               </aside>
             </MotionReveal>
 
             <div className="grid gap-5">
               {bolumler.map((bolum, index) => (
                 <MotionReveal key={bolum.baslik} delay={index * 0.08}>
-                  <article className="rounded-[2rem] border border-white/80 bg-white/85 p-7 shadow-[0_18px_48px_rgba(20,32,57,0.08)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
-                      Bölüm {index + 1}
-                    </p>
-                    <h2 className="mt-3 font-serif text-3xl font-semibold text-[color:var(--color-navy)]">
+                  <article className="surface-card p-7 sm:p-8">
+                    <p className="eyebrow">Bölüm {index + 1}</p>
+                    <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)] sm:text-[2rem]">
                       {bolum.baslik}
                     </h2>
-                    <p className="mt-4 text-sm leading-7 text-[color:var(--color-muted)]">
+                    <p className="lead-text mt-4 text-[0.98rem] leading-8">
                       {bolum.metin}
                     </p>
                   </article>
