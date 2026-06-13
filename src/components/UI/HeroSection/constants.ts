@@ -1,13 +1,13 @@
 // For desktop
-export const phrases = ['Building the future of', 'banking.'];
+export const phrases = ['Filo, Sigorta ve Asistansta', 'Güvenilir Ortağınız.'];
 export const paragraphPhrases = [
-  "Experience the future of banking with RAFT. We're here to",
-  'empower your financial journey.',
+  "BGC Group ile kurumsal süreçlerinizi güvenceye alın,",
+  'işinize değer katın.',
 ];
 
 // For mobile
-export const mobilePhrases = ['Building the future', 'of banking'];
+export const mobilePhrases = ['Güvenilir', 'Çözüm Ortağınız'];
 export const mobileParagraphPhrases = [
-  "Experience the future of banking with RAFT. We're",
-  'here to empower your financial journey.',
+  "BGC Group ile işinizi",
+  'güvence altına alın.',
 ];

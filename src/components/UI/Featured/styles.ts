@@ -55,8 +55,36 @@ export const ImageContainer = styled.div`
 
 export const ParallaxImages = styled.div`
   position: relative;
-  max-width: 53.7rem;
-  margin: 3rem auto 0;
+  max-width: 100vw;
+  width: 100%;
+  margin: 4rem auto 0;
+  overflow: hidden;
+`;
+
+export const BrandList = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem;
+`;
+
+export const BrandItem = styled.span`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #a1a1aa; /* zinc-400 */
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
+  cursor: default;
+
+  &:hover {
+    color: #E30613; /* BGC Red */
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const Div = styled(motion.div)`

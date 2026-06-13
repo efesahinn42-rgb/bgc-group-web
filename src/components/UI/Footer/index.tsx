@@ -8,16 +8,20 @@ import ic_copyright from '../../../../public/svgs/ic_copyright.svg';
 
 const linksArr = [
   {
-    title: 'About us',
-    links: ['Our Company', 'Careers', 'Press kits'],
+    title: 'Kurumsal',
+    links: ['Hakkımızda', 'Kariyer', 'Basın'],
   },
   {
-    title: 'Legal',
-    links: ['Terms of use', 'Privacy policy', 'About us'],
+    title: 'Hizmetler',
+    links: ['Filo Kiralama', 'Sigorta', 'Asistans'],
   },
   {
-    title: 'About us',
-    links: ['Contact us', 'FAQ'],
+    title: 'İletişim',
+    links: [
+      'Hızlı Destek: 0850 888 0 155',
+      'E-Posta: info@bgcgroup.com.tr',
+      'Adres: Akabe, Şht. Furkan Doğan Cd. Bey Plaza Kat:1 No:3/122 Karatay / Konya',
+    ],
   },
 ];
 
@@ -44,7 +48,7 @@ const Footer = () => {
     <Wrapper>
       <Inner>
         <FooterLogo>
-          <Image src={raft_footer_logo} alt="raft_footer_logo" />
+          <Image src="/images/bgc group logo_png.png" alt="bgc_group_logo" width={300} height={100} style={{ objectFit: 'contain' }} />
         </FooterLogo>
         <FooterMainContent>
           <FooterMiddle>
@@ -53,7 +57,7 @@ const Footer = () => {
                 <Image src={qr_code} alt="qr_code" />
               </QRImageCtn>
               <TextCtn>
-                <p>Scan to download App on the Playstore and Appstore.</p>
+                <p>BGC Group Mobil Uygulaması Çok Yakında Playstore ve Appstore&apos;da.</p>
                 <IconCtn>
                   <Image src={ic_google_playstore} alt="playstore icon" />
                   <Image src={ic_baseline_apple} alt="apple icon" />
@@ -75,12 +79,12 @@ const Footer = () => {
           </FooterMiddle>
           <FooterBottom>
             <Translator>
-              <h3>English (United Kingdom)</h3>
+              <h3>Türkçe (Türkiye)</h3>
               <Image src={ic_chevron_down} alt="chevron down" />
             </Translator>
             <CopyRight>
               <Image src={ic_copyright} alt="copyright svg" />
-              Raft Corp, LLC.
+              BGC Group A.Ş. © 2026
             </CopyRight>
           </FooterBottom>
         </FooterMainContent>

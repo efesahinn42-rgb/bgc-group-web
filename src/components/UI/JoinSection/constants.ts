@@ -12,34 +12,34 @@ export type Props = {
 export const testimonials = [
   {
     testimony:
-      "RAFT has transformed my approach to finance. Their smart investing options have helped me grow my wealth, and their user-friendly platform makes managing my money a breeze. I've never felt more confident about my financial future.",
-    person: 'Robert Fox',
+      "BGC Group ile çalışmaya başladığımızdan beri şirket araçlarımızın yönetimi çok kolaylaştı. İstediğimiz an ulaşabildiğimiz destek ekipleri sayesinde hiçbir zaman yolda kalmıyoruz.",
+    person: 'Ahmet Yılmaz',
     avatar: robert_fox,
   },
   {
     testimony:
-      "I can't express how grateful I am to RAFT. Their wealth management services have been a game-changer for my family's financial security. The expert guidance and personalized strategies have given us peace of mind, knowing that our future is in capable hands.",
-    person: 'Cameron Williamson',
+      "Kapsamlı sigorta poliçeleri ve profesyonel hasar yönetimleri sayesinde tüm kurumsal risklerimizi güvence altına aldılar. İçimiz çok rahat, herkese tavsiye ederim.",
+    person: 'Ayşe Kaya',
     avatar: cameron_williamson,
   },
   {
     testimony:
-      "RAFT's financial planning services have been a lifeline for me. I always struggled with managing my money, but their team crafted a tailored plan that addressed my goals and concerns. It's been a game-changer in achieving my financial dreams",
-    person: 'Esther Howard',
+      "Asistans hizmetleri gerçekten kusursuz çalışıyor. Yaşadığımız küçük bir kazada anında müdahale edip ikame aracımızı dakikalar içinde teslim ettiler.",
+    person: 'Mehmet Demir',
     avatar: esther_howard,
   },
   {
     testimony:
-      "I can't express how grateful I am to RAFT. Their wealth management services have been a game-changer for my family's financial security. The expert guidance and personalized strategies have given us peace of mind, knowing that our future is in capable hands.",
-    person: 'Cameron Williamson',
+      "Kapsamlı sigorta poliçeleri ve profesyonel hasar yönetimleri sayesinde tüm kurumsal risklerimizi güvence altına aldılar. İçimiz çok rahat, herkese tavsiye ederim.",
+    person: 'Ayşe Kaya',
     avatar: cameron_williamson,
   },
   {
     testimony:
-      "RAFT has transformed my approach to finance. Their smart investing options have helped me grow my wealth, and their user-friendly platform makes managing my money a breeze. I've never felt more confident about my financial future.",
-    person: 'Robert Fox',
+      "BGC Group ile çalışmaya başladığımızdan beri şirket araçlarımızın yönetimi çok kolaylaştı. İstediğimiz an ulaşabildiğimiz destek ekipleri sayesinde hiçbir zaman yolda kalmıyoruz.",
+    person: 'Ahmet Yılmaz',
     avatar: robert_fox,
   },
 ];
 
-export const desktopHeaderPhrase = ['Join over 3 million', 'members'];
+export const desktopHeaderPhrase = ['Binlerce mutlu', 'müşterimiz arasına katılın'];

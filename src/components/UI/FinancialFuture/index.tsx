@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import future_banner from '../../../../public/images/future_banner.png';
+import corporate_banner from '../../../../public/images/corporate.png';
 import future_mobile_banner from '../../../../public/images/future_mobile_banner.png';
 import {
   Wrapper,
@@ -70,7 +70,7 @@ const FinancialFuture = () => {
         {isMobile ? (
           <Image src={future_mobile_banner} alt="future_banner" fill />
         ) : (
-          <Image src={future_banner} alt="future_banner" fill />
+          <Image src={corporate_banner} alt="corporate_banner" fill />
         )}
       </Banner>
     </Wrapper>

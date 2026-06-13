@@ -46,8 +46,8 @@ export const Header = styled.header`
 
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

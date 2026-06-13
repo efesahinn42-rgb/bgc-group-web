@@ -1,47 +1,47 @@
-import seamless_payments from '../../../../public/images/seamless_payments.png';
-import smart_investing from '../../../../public/images/smart_investing.png';
-import wealth_management from '../../../../public/images/wealth_management.png';
-import financial_planning from '../../../../public/images/financial_planning.png';
+import fleetcar from '../../../../public/images/fleetcar.png';
+import carkey from '../../../../public/images/carkey.png';
+import towtruck from '../../../../public/images/towtruck.png';
+import carinspection from '../../../../public/images/carinspection.png';
 // For desktop
 export const desktopHeaderPhrases = [
-  'Elevate Your Financial',
-  'Journey with RAFT',
+  'BGC Group ile İşinize',
+  'Değer Katın',
 ];
 export const desktopParagraphPhrase = [
-  'RAFT offers a world of financial possibilities. From investments to payments,',
-  "we've got you covered. Join us and unlock your potential today.",
+  'BGC Group, filo kiralama, sigorta ve asistans hizmetlerinde yenilikçi',
+  'çözümler sunar. İhtiyacınıza en uygun paketlerle güvendesiniz.',
 ];
 
 // For mobile
 export const mobileParagraphPhrase = [
-  'RAFT offers a world of financial possibilities. From',
-  "investments to payments, we've got you covered.",
-  'Join us and unlock your potential today.',
+  'BGC Group, filo kiralama, sigorta ve asistans',
+  'hizmetlerinde yenilikçi çözümler sunar.',
+  'İhtiyacınıza en uygun paketlerle güvendesiniz.',
 ];
 
 export const offers = [
   {
-    illustration: seamless_payments,
-    title: 'Seamless Payments',
+    illustration: fleetcar,
+    title: 'Filo Kiralama',
     details:
-      'Enjoy secure, seamless transactions that make managing your money a breeze.',
+      'İşletmenizin ihtiyaçlarına özel, geniş araç seçenekleri ile esnek ve güvenilir kurumsal filo kiralama hizmetleri.',
   },
   {
-    illustration: smart_investing,
-    title: 'Smart Investing',
+    illustration: carkey,
+    title: 'Sigorta Çözümleri',
     details:
-      'Grow your wealth confidently with our personalized investment solutions, tailored to your financial goals.',
+      'Risklerinizi güvence altına alacak, bireysel ve kurumsal ihtiyaçlara yönelik kapsamlı sigorta poliçeleri.',
   },
   {
-    illustration: wealth_management,
-    title: 'Wealth Management',
+    illustration: towtruck,
+    title: 'Asistans Hizmetleri',
     details:
-      'Make informed decisions for your financial future with our wealth management expertise.',
+      'Yolda kalmanızı önleyecek, her an yanınızda olan 7/24 profesyonel yol yardım ve destek hizmetleri.',
   },
   {
-    illustration: financial_planning,
-    title: 'Financial Planning',
+    illustration: carinspection,
+    title: 'Hasar Yönetimi',
     details:
-      'Achieve your financial dreams with our comprehensive financial planning services, guiding you toward a secure future.',
+      'Olası hasar durumlarında hızlı çözüm üreten, müşteri odaklı ve şeffaf uçtan uca hasar yönetim süreci.',
   },
 ];

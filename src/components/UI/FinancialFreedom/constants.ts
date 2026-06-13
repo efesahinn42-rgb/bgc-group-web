@@ -4,53 +4,52 @@ import ic_circle_stack from '../../../../public/svgs/ic_circle_stack.svg';
 import ic_arrows_left_right from '../../../../public/svgs/ic_arrows_right_left.svg';
 
 // For desktop
-export const desktopHeaderPhrase = ['Your Financial Freedom,', 'Your Way'];
+export const desktopHeaderPhrase = ['Neden BGC Group?', 'Size Özel Çözümler'];
 export const desktopParagraphPhrase = [
-  'We believe that managing your finances should be effortless and cost-effective.',
-  "That's why we offer you the freedom you deserve.",
+  'İş modelinizi ve ihtiyaçlarınızı analiz ediyor,',
+  'size en uygun filo, sigorta ve asistans paketlerini sunuyoruz.',
 ];
 export const desktopBriefNotePhrase = [
-  'Smart investments,',
-  'secure payments, and',
-  'expert guidance, all in',
-  'one place.',
+  'Güvenilir,',
+  'şeffaf ve',
+  'hızlı kurumsal',
+  'çözüm ortağınız.',
 ];
 
 // For mobile
-export const mobileHeaderPhrase = ['Your Financial', 'Freedom, Your Way'];
+export const mobileHeaderPhrase = ['Neden BGC Group?'];
 export const mobileParagraphPhrase = [
-  'We believe that managing your finances should be',
-  "effortless and cost-effective. That's why we offer",
-  ' you the freedom you deserve.',
+  'İş modelinizi ve ihtiyaçlarınızı',
+  'analiz ediyor, size en uygun filo ve',
+  'sigorta paketlerini sunuyoruz.',
 ];
 
 export const mobileBriefNotePhrase = [
-  'Smart',
-  ' investments,',
-  'secure',
-  ' payments,',
-  'and expert',
-  'guidance, all',
-  'in one place.',
+  'Güvenilir,',
+  'şeffaf',
+  've hızlı',
+  'kurumsal',
+  'çözüm',
+  'ortağınız.',
 ];
 
 export const edges = [
   {
-    point: 'No minimum balance fees',
+    point: 'Esnek ve Hızlı Çözümler',
     details:
-      'Say goodbye to minimum balance fees. Your account, your balance—no hidden charges',
+      'Firmanızın bütçesine ve ihtiyaçlarına en uygun esnek kiralama ve sigorta seçenekleri.',
     icon: ic_banknotes,
   },
   {
-    point: 'No monthly fees',
+    point: 'Geniş Hizmet Ağı',
     details:
-      'Bank with us without worrying about monthly fees. Keep more of your money where it belongs—in your account',
+      'Türkiye çapında yaygın servis ve anlaşmalı kurum ağıyla her zaman yanınızdayız.',
     icon: ic_circle_stack,
   },
   {
-    point: 'No bank transfer fees',
+    point: '7/24 Kesintisiz Destek',
     details:
-      'Seamlessly transfer funds without the extra cost. Send and receive money with zero bank transfer fees.',
+      'Günün her saati ulaşabileceğiniz uzman müşteri hizmetleri ve yol yardım ekibi.',
     icon: ic_arrows_left_right,
   },
 ];

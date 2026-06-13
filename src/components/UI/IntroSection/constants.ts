@@ -3,39 +3,38 @@ import ic_identification from '../../../../public/svgs/ic_identification.svg';
 import ic_lock_closed from '../../../../public/svgs/ic_lock_closed.svg';
 
 // For desktop
-export const desktopHeaderPhrase = ["Introducing RAFT's Next-", 'Gen Cards'];
+export const desktopHeaderPhrase = ["Sizin İçin Geliştirdik,", 'Özel Hizmet Paketleri'];
 export const desktopParagraphPhrase = [
-  " Discover RAFT's latest innovation – our new cards. Elevate your banking",
-  'experience with cutting-edge features, security, and unprecedented',
-  'convenience.',
+  "BGC Group ile kurumsal çözümlerde yeni bir döneme adım atın.",
+  'Size özel hazırlanan paketlerle maksimum verim,',
+  'güvenlik ve kolaylık sağlayın.',
 ];
 
 // For mobile
-export const mobileHeaderPhrase = ["Introducing RAFT's", 'Next-Gen Cards'];
+export const mobileHeaderPhrase = ["Sizin İçin Geliştirdik,", 'Özel Paketler'];
 export const mobileParagraphPhrase = [
-  " Discover RAFT's latest innovation – our new cards.",
-  ' Elevate your banking experience with cutting-edge',
-  'features, security, and unprecedented',
-  'convenience.',
+  "BGC Group ile kurumsal çözümlerde",
+  'yeni bir döneme adım atın. Maksimum',
+  'verim ve güvenlik sağlayın.',
 ];
 
 export const edges = [
   {
-    point: 'Contactless Technology',
+    point: 'Hızlı Çözüm Odaklı',
     details:
-      'Our new cards come equipped with contactless technology, allowing you to make swift, secure payments with a simple tap.',
+      'Gelişmiş altyapımız sayesinde operasyonel süreçlerinizi hızlandırıyor, vakit kayıplarının önüne geçiyoruz.',
     icon: ic_document_duplicate,
   },
   {
-    point: 'Personalization',
+    point: 'Size Özel Tasarlanmış',
     details:
-      'Customize your card to reflect your unique style. Choose from a range of designs that suit your personality.',
+      'Firmanızın ihtiyaçlarına uygun olarak şekillendirilebilen esnek filo ve sigorta anlaşmaları.',
     icon: ic_identification,
   },
   {
-    point: 'Enhanced Security',
+    point: 'Maksimum Güvenlik',
     details:
-      'Your peace of mind is our priority. Our cards feature advanced security measures to protect your transactions and data.',
+      'Tüm süreçlerinizde veri güvenliği ve hukuki korumayı ön planda tutarak huzurunuzu garanti ediyoruz.',
     icon: ic_lock_closed,
   },
 ];

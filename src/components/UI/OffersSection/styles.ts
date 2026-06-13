@@ -49,37 +49,21 @@ export const Header = styled.header`
 `;
 
 export const ImageCtn = styled.div`
-  margin: 3rem auto 0;
+  margin: 0 auto;
   position: relative;
   display: flex;
-
-  &::after {
-    position: absolute;
-    content: '';
-    height: 13.4375rem;
-    width: 100%;
-    background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, #131313 100%);
-    left: 0;
-    top: 50px;
-  }
+  height: 16rem;
+  width: 100%;
+  overflow: hidden;
 
   img {
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
   }
 
   @media (max-width: 768px) {
-    margin: 0.32rem auto 0;
-
-    &::after {
-      top: 30px;
-    }
-
-    img {
-      width: 90%;
-      margin: 0 auto;
-      object-fit: contain;
-    }
+    height: 14rem;
   }
 `;
 
@@ -125,12 +109,11 @@ export const Offers = styled.div`
       flex: 1;
 
       ${ImageCtn} {
-        margin-top: 5.7rem;
-        flex: 2;
+        margin-top: 0;
+        flex: unset;
       }
 
       ${TextCtn} {
-        height: 1em;
         flex: 1;
       }
     }
@@ -139,13 +122,12 @@ export const Offers = styled.div`
       flex: 2;
 
       ${ImageCtn} {
-        margin-top: 5.7rem;
-        flex: 2;
+        margin-top: 0;
+        flex: unset;
         margin-left: auto;
       }
 
       ${TextCtn} {
-        height: 1em;
         flex: 1;
       }
     }
@@ -159,12 +141,12 @@ export const Offers = styled.div`
         flex: 1;
 
         ${ImageCtn} {
-          margin-top: 4.78rem;
-          flex: 1;
+          margin-top: 0;
+          flex: unset;
         }
 
         ${TextCtn} {
-          margin-top: 4rem;
+          margin-top: 1rem;
         }
       }
 
@@ -172,13 +154,13 @@ export const Offers = styled.div`
         flex: 1;
 
         ${ImageCtn} {
-          margin-top: 5.7rem;
-          flex: 1;
+          margin-top: 0;
+          flex: unset;
           margin-left: auto;
         }
 
         ${TextCtn} {
-          margin-top: 2rem;
+          margin-top: 1rem;
         }
       }
     }

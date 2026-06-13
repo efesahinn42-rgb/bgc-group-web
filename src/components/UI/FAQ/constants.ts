@@ -3,8 +3,8 @@ type FAQItem = {
   answer: string;
 };
 
-export const desktopHeaderPhrase = ['Frequently asked', 'questions'];
-export const mobileHeaderPhrase = ['Frequently', 'asked', 'questions'];
+export const desktopHeaderPhrase = ['Sıkça Sorulan', 'Sorular'];
+export const mobileHeaderPhrase = ['Sıkça', 'Sorulan', 'Sorular'];
 export const animate = {
   initial: {
     y: '100%',
@@ -19,23 +19,23 @@ export const animate = {
 
 export const faqData: FAQItem[] = [
   {
-    question: 'How do I create an account with RAFT?',
+    question: 'BGC Group ile nasıl çalışmaya başlayabilirim?',
     answer:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      'Web sitemiz üzerinden "Teklif Al" butonuna tıklayarak formu doldurabilir veya doğrudan iletişim numaralarımızdan uzman ekibimize ulaşabilirsiniz.',
   },
   {
-    question: 'How does RAFT ensure the security of my financial data?',
+    question: 'Filo kiralama sözleşmeleri ne kadar süreli yapılmaktadır?',
     answer:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      'Kurumunuzun ihtiyacına göre 12 aydan 48 aya kadar esnek kiralama seçenekleri sunmaktayız.',
   },
   {
-    question: 'What types of transactions can I perform with RAFT?',
+    question: 'Kaza veya arıza durumunda (Asistans) ne yapmalıyım?',
     answer:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      '7/24 hizmet veren acil destek hattımızı aramanız yeterlidir. İkame araç ve çekici hizmeti dahil tüm süreç ekibimizce yönetilir.',
   },
   {
-    question: 'What benefits does RAFT offer for wealth management?',
+    question: 'Kurumsal sigorta poliçeleri neleri kapsıyor?',
     answer:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      'İşletmenizin yapısına özel olarak kasko, trafik, işyeri, sorumluluk ve nakliyat gibi tüm temel risklerinizi güvence altına alıyoruz.',
   },
 ];

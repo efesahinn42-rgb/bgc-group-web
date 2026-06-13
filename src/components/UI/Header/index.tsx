@@ -9,8 +9,10 @@ import {
   CallToActions,
   AbsoluteLinks,
   BurgerMenu,
+  PhoneButton,
+  WhatsAppButton,
 } from './styles';
-import raft_logo from '../../../../public/svgs/raft_logo.svg';
+import { Phone, MessageCircle } from 'lucide-react';
 import ic_bars from '../../../../public/svgs/ic_bars.svg';
 import { GetStartedButton } from '@/components';
 import AnimatedLink from '@/components/Common/AnimatedLink';
@@ -24,7 +26,7 @@ const Header = () => {
     <Wrapper>
       <Inner>
         <LogoContainer>
-          <Image src={raft_logo} alt="raft_logo" priority />
+          <Image src="/images/bgc group logo_png.png" alt="BGC Group Logo" width={180} height={45} priority />
           <BurgerMenu onClick={() => setIsOpen(!isOpen)}>
             <motion.div
               variants={menu}
@@ -40,8 +42,18 @@ const Header = () => {
           ))}
         </Nav>
         <CallToActions className={isOpen ? 'active' : ''}>
-          <AnimatedLink title="Login" />
-          <GetStartedButton padding="0.5rem 0.75rem" />
+          <a href="tel:08508880155" style={{ textDecoration: 'none' }}>
+            <PhoneButton>
+              <Phone size={18} />
+              Bize Ulaşın
+            </PhoneButton>
+          </a>
+          <a href="https://wa.me/908508880155" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <WhatsAppButton>
+              <MessageCircle size={18} />
+              WhatsApp
+            </WhatsAppButton>
+          </a>
         </CallToActions>
       </Inner>
     </Wrapper>

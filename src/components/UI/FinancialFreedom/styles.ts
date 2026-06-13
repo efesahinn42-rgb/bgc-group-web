@@ -114,21 +114,32 @@ export const Title = styled.div`
 `;
 
 export const BriefNote = styled.div`
-  max-height: 54.75rem;
-  padding: 8.25rem 4.5rem;
-  background: var(--emerald);
+  padding: 10rem 4.5rem;
+  background: radial-gradient(circle at center, #1A1A1A 0%, #080808 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
   p {
-    color: var(--Background, #070606);
-    font-size: 8rem;
-    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 7rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     max-width: 1440px;
+    text-align: center;
+    text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  p:last-child {
+    color: #E30613; /* Highlight the last phrase */
   }
 
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 5rem 1.5rem;
     p {
-      font-size: 3.75rem;
+      font-size: 3.25rem;
     }
   }
 `;

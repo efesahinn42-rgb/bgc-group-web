@@ -23,14 +23,22 @@ export const menu = {
 export const links = [
   {
     url: '/',
-    linkTo: 'Solutions',
+    linkTo: 'Ana Sayfa',
   },
   {
     url: '/',
-    linkTo: 'Learn',
+    linkTo: 'Filo Kiralama',
   },
   {
     url: '/',
-    linkTo: 'About',
+    linkTo: 'Sigorta',
+  },
+  {
+    url: '/',
+    linkTo: 'Asistans Hizmetleri',
+  },
+  {
+    url: '/',
+    linkTo: 'İletişim',
   },
 ];

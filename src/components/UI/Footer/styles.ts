@@ -19,9 +19,14 @@ export const Inner = styled.main`
 `;
 
 export const FooterLogo = styled.div`
+  background-color: #ffffff;
+  display: inline-flex;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  align-self: flex-start;
+
   @media (max-width: 768px) {
-    width: 13.2rem;
-    height: 5.6rem;
+    padding: 0.75rem 1rem;
     img {
       width: 100%;
       height: 100%;

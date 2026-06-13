@@ -4,7 +4,7 @@ import big_banner from '../../../../public/images/big_banner.png';
 import featured_mobile_banner from '../../../../public/images/featured_mobile_banner.png';
 import ParallaxText from '@/components/Common/ParallaxImages';
 import companies_image from '../../../../public/images/companies.png';
-import { Wrapper, Inner, ImageContainer, ParallaxImages, Div } from './styles';
+import { Wrapper, Inner, ImageContainer, ParallaxImages, Div, BrandList, BrandItem } from './styles';
 import RevealCover from '@/components/Common/RevealCover';
 import { useIsMobile } from '../../../../libs/useIsMobile';
 export const imageVariants = {
@@ -45,10 +45,22 @@ const Featured = () => {
             )}
           </Div>
         </ImageContainer>
-        <h2>Featured and Seen in</h2>
+        <h2>Çözüm Ortaklarımız ve Referanslarımız</h2>
         <ParallaxImages>
-          <ParallaxText baseVelocity={-4}>
-            <Image src={companies_image} alt="comapanies" />
+          <ParallaxText baseVelocity={-2}>
+            <BrandList>
+              <BrandItem>ALLIANZ SİGORTA</BrandItem>
+              <BrandItem>AXA SİGORTA</BrandItem>
+              <BrandItem>MAPFRE SİGORTA</BrandItem>
+              <BrandItem>TÜRKİYE SİGORTA</BrandItem>
+              <BrandItem>TUR ASSIST</BrandItem>
+              <BrandItem>MARMARA ASİSTANS</BrandItem>
+              <BrandItem>RENAULT MAİS</BrandItem>
+              <BrandItem>FORD FİLO</BrandItem>
+              <BrandItem>AVİS FİLO</BrandItem>
+              <BrandItem>GARENTA</BrandItem>
+              <BrandItem>HEDEF FİLO</BrandItem>
+            </BrandList>
           </ParallaxText>
         </ParallaxImages>
       </Inner>
