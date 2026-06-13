@@ -80,17 +80,34 @@ export const CardsContainer = styled.div`
   width: 100%;
 `;
 
-export const MainImageCtn = styled.div`
-  width: 100%;
-  max-width: 800px;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
+export const LeftImage = styled(Image)`
+  transform: rotate(270deg);
+  position: absolute;
+  top: 64px;
+  transition: transform 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
+  &.active {
+    transform: rotate(70.281deg) translate(-50%, 60%);
+    top: 60%;
+  }
+`;
+
+export const MiddleImage = styled(Image)`
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+`;
+
+export const RightImage = styled(Image)`
+  width: 21.875rem;
+  height: 13.875rem;
+  transform: rotate(90deg);
+  top: 65px;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  &.active {
+    transform: rotate(-70.281deg) translate(50%, 60%);
+    top: 60%;
   }
 `;
