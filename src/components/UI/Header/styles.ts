@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.section`
@@ -7,6 +6,8 @@ export const Wrapper = styled.section`
   border-bottom: 0.5px solid #eaeaea;
   background-color: var(--white);
   color: var(--Background);
+  position: relative;
+  z-index: 100;
 
   @media (max-width: 768px) {
     padding: 0.75rem 0;
@@ -40,11 +41,6 @@ export const LogoContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    
     img {
       transform: scale(1.8) translateX(25px) !important;
     }
@@ -53,28 +49,13 @@ export const LogoContainer = styled.div`
 
 export const BurgerMenu = styled.div`
   display: none;
-  position: relative;
+  cursor: pointer;
+  padding: 0.5rem;
 
   @media (max-width: 768px) {
-    display: block;
-    padding: 0.5rem;
-
-    div {
-      position: absolute;
-      background: var(--emerald);
-      width: 280px;
-      height: 350px;
-      border-radius: 25px;
-      z-index: 1;
-      top: 50px;
-      right: -20px;
-    }
-
-    img {
-      position: relative;
-      z-index: 2;
-      object-fit: cover;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -102,32 +83,11 @@ export const Nav = styled.div`
   }
 
   @media (max-width: 768px) {
-    position: absolute;
-    top: 80px;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-end;
-    right: 40px;
-    z-index: 3;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition-delay: 0.5s;
-
-    &.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    display: none;
   }
 `;
 
-export const AbsoluteLinks = styled(Link)`
-  position: absolute;
-  top: 40px;
-  color: var(--link-color);
-  font-size: 1rem;
-  font-weight: 400;
-`;
+export const AbsoluteLinks = styled.a``;
 
 export const CallToActions = styled.div`
   display: flex;
@@ -138,33 +98,78 @@ export const CallToActions = styled.div`
     text-decoration: none;
   }
 
-  div {
-    span {
-      color: #000000 !important;
-      font-size: 1.125rem;
-      font-weight: 600;
-    }
-  }
-
   @media (max-width: 1024px) {
     gap: 0.5rem;
   }
 
   @media (max-width: 768px) {
-    position: absolute;
-    top: 260px;
-    z-index: 3;
-    right: 30px;
-    flex-direction: column;
-    align-items: flex-end;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition-delay: 0.5s;
+    display: none;
+  }
+`;
 
-    &.active {
-      opacity: 1;
-      visibility: visible;
+/* ——— Mobile Menu ——— */
+
+export const MobileMenuOverlay = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+  }
+`;
+
+export const MobileMenuContent = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+    background: var(--emerald);
+    margin: 5rem 1rem 0;
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.35s ease-out;
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    span {
+      color: #000000 !important;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .mobile-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      margin-top: 0.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+
+      a {
+        width: 100%;
+        text-decoration: none;
+      }
     }
   }
 `;
@@ -172,15 +177,16 @@ export const CallToActions = styled.div`
 export const PhoneButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.6rem 1.25rem;
   border-radius: 9999px;
-  background-color: #f4f4f5; /* zinc-100 */
-  color: #18181b !important; /* zinc-900 */
+  background-color: #f4f4f5;
+  color: #18181b !important;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #e4e4e7; /* zinc-200 */
+  border: 1px solid #e4e4e7;
 
   &:hover {
     background-color: #e4e4e7;
@@ -191,6 +197,7 @@ export const PhoneButton = styled.div`
 export const WhatsAppButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.6rem 1.25rem;
   border-radius: 9999px;

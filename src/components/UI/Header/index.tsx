@@ -7,18 +7,16 @@ import {
   LogoContainer,
   Nav,
   CallToActions,
-  AbsoluteLinks,
   BurgerMenu,
   PhoneButton,
   WhatsAppButton,
+  MobileMenuOverlay,
+  MobileMenuContent,
 } from './styles';
-import { Phone, MessageCircle } from 'lucide-react';
-import ic_bars from '../../../../public/svgs/ic_bars.svg';
-import { GetStartedButton } from '@/components';
+import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 import AnimatedLink from '@/components/Common/AnimatedLink';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { links, menu } from './constants';
+import { links } from './constants';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,21 +25,17 @@ const Header = () => {
       <Inner>
         <LogoContainer>
           <Image src="/images/bgc group logo_png.png" alt="BGC Group Logo" width={180} height={45} priority />
-          <BurgerMenu onClick={() => setIsOpen(!isOpen)}>
-            <motion.div
-              variants={menu}
-              animate={isOpen ? 'open' : 'closed'}
-              initial="closed"
-            ></motion.div>
-            <Image src={ic_bars} alt="bars" />
-          </BurgerMenu>
         </LogoContainer>
-        <Nav className={isOpen ? 'active' : ''}>
+
+        {/* Desktop Nav */}
+        <Nav>
           {links.map((link, i) => (
             <AnimatedLink key={i} title={link.linkTo} />
           ))}
         </Nav>
-        <CallToActions className={isOpen ? 'active' : ''}>
+
+        {/* Desktop CTA */}
+        <CallToActions>
           <a href="tel:08508880155" style={{ textDecoration: 'none' }}>
             <PhoneButton>
               <Phone size={18} />
@@ -55,7 +49,37 @@ const Header = () => {
             </WhatsAppButton>
           </a>
         </CallToActions>
+
+        {/* Mobile Burger */}
+        <BurgerMenu onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} color="#000" /> : <Menu size={28} color="#000" />}
+        </BurgerMenu>
       </Inner>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <MobileMenuOverlay onClick={() => setIsOpen(false)}>
+          <MobileMenuContent onClick={(e) => e.stopPropagation()}>
+            {links.map((link, i) => (
+              <AnimatedLink key={i} title={link.linkTo} />
+            ))}
+            <div className="mobile-cta">
+              <a href="tel:08508880155" style={{ textDecoration: 'none' }}>
+                <PhoneButton>
+                  <Phone size={18} />
+                  Bize Ulaşın
+                </PhoneButton>
+              </a>
+              <a href="https://wa.me/908508880155" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                <WhatsAppButton>
+                  <MessageCircle size={18} />
+                  WhatsApp
+                </WhatsAppButton>
+              </a>
+            </div>
+          </MobileMenuContent>
+        </MobileMenuOverlay>
+      )}
     </Wrapper>
   );
 };
