@@ -62,11 +62,12 @@ export const BurgerMenu = styled.div`
     div {
       position: absolute;
       background: var(--emerald);
-      width: '250px';
-      height: '300px';
+      width: 280px;
+      height: 350px;
       border-radius: 25px;
       z-index: 1;
       top: 50px;
+      right: -20px;
     }
 
     img {
@@ -102,11 +103,11 @@ export const Nav = styled.div`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: 60px;
+    top: 80px;
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-    right: 120px;
+    gap: 1.5rem;
+    align-items: flex-end;
+    right: 40px;
     z-index: 3;
     visibility: hidden;
     opacity: 0;
@@ -151,9 +152,11 @@ export const CallToActions = styled.div`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: 220px;
+    top: 260px;
     z-index: 3;
-    right: 50px;
+    right: 30px;
+    flex-direction: column;
+    align-items: flex-end;
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
