@@ -82,10 +82,15 @@ const Footer = () => {
               <h3>Türkçe (Türkiye)</h3>
               <Image src={ic_chevron_down} alt="chevron down" />
             </Translator>
-            <CopyRight>
-              <Image src={ic_copyright} alt="copyright svg" />
-              BGC Group A.Ş. © 2026
-            </CopyRight>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+              <CopyRight>
+                <Image src={ic_copyright} alt="copyright svg" />
+                BGC Group A.Ş. © 2026
+              </CopyRight>
+              <a href="https://instagram.com/efecreativetech" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#989898', fontSize: '0.875rem', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#989898'}>
+                powered by EFE Creative Tech & Media
+              </a>
+            </div>
           </FooterBottom>
         </FooterMainContent>
       </Inner>
