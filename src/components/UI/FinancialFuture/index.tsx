@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import corporate_banner from '../../../../public/images/corporate.png';
-import future_mobile_banner from '../../../../public/images/future_mobile_banner.png';
 import {
   Wrapper,
   Inner,
@@ -52,7 +51,7 @@ const FinancialFuture = () => {
                 <MaskText phrases={new Array(info.details)} tag="p" />
               </TextCtn>
               <SVGCtn>
-                <Image src={info.icon} alt="icon" />
+                {info.icon}
               </SVGCtn>
             </Card>
           ))}
@@ -68,7 +67,7 @@ const FinancialFuture = () => {
       </Inner>
       <Banner>
         {isMobile ? (
-          <Image src={future_mobile_banner} alt="future_banner" fill />
+          <Image src={corporate_banner} alt="future_banner" fill />
         ) : (
           <Image src={corporate_banner} alt="corporate_banner" fill />
         )}

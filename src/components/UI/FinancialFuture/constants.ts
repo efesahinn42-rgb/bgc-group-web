@@ -1,24 +1,23 @@
-import ic_money_send from '../../../../public/svgs/ic_money_send.svg';
-import ic_wallet_minus from '../../../../public/svgs/ic_wallet_minus.svg';
-import ic_circle_stack from '../../../../public/svgs/ic_circle_stack.svg';
+import { Send, Wallet, Layers } from 'lucide-react';
+import React from 'react';
 export const cardsInfo = [
   {
     title: 'Filo Yönetimi',
     details:
       'BGC Group güvencesiyle kurumsal araç kiralama süreçlerinizi sıfır stresle yönetin.',
-    icon: ic_money_send,
+    icon: React.createElement(Send, { size: 64, color: '#e30613', strokeWidth: 1.5 }),
   },
   {
     title: 'Hasar & Sigorta',
     details:
       'Poliçe yenileme ve hasar süreçleriniz alanında uzman ekibimiz tarafından titizlikle takip edilir.',
-    icon: ic_wallet_minus,
+    icon: React.createElement(Wallet, { size: 64, color: '#e30613', strokeWidth: 1.5 }),
   },
   {
     title: '7/24 Asistans',
     details:
       'Beklenmedik durumlara karşı anında yol yardım ve ikame araç desteğiyle her zaman yanınızdayız.',
-    icon: ic_circle_stack,
+    icon: React.createElement(Layers, { size: 64, color: '#e30613', strokeWidth: 1.5 }),
   },
 ];
 

@@ -1,6 +1,5 @@
 'use client';
 import { styled } from 'styled-components';
-import grid_background from '../../../../public/images/offer_card_grid_1.png';
 
 export const Wrapper = styled.section``;
 
@@ -174,7 +173,7 @@ export const OfferCard = styled.div`
   border: 1px solid var(--stroke, rgba(255, 255, 255, 0.04));
   display: flex;
   flex-direction: column;
-  background: url(${grid_background.src}) #131313 no-repeat;
+  background: #131313 no-repeat;
 
   &:first-child {
     flex: 2;

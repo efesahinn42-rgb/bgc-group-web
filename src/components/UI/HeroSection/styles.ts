@@ -1,13 +1,12 @@
 'use client';
 import { styled } from 'styled-components';
-import hero_background from '../../../../public/images/grid_background.png';
 
 export const Wrapper = styled.section`
   margin-top: 6.25rem;
 `;
 
 export const Inner = styled.div`
-  background: url(${hero_background.src}) no-repeat;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;

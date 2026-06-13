@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { Wrapper, Inner, Pill, HeroTextContainer } from './styles';
-import ic_chevron_right from '../../../../public/svgs/ic_chevron_right.svg';
+import { ChevronRight } from 'lucide-react';
 import { GetStartedButton } from '@/components';
 import MaskText from '@/components/Common/MaskText';
 import { useIsMobile } from '../../../../libs/useIsMobile';
@@ -18,8 +18,8 @@ const HeroSection = () => {
     <Wrapper>
       <Inner>
         <Pill>
-          <span>BGC Group</span>
-          <Image src={ic_chevron_right} alt="chevron-right" />
+          <span>Daha Fazla Bilgi</span>
+          <ChevronRight size={16} color="#e30613" />
         </Pill>
         <HeroTextContainer>
           {isMobile ? (

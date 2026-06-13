@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Edge, Edges, Title } from '../FinancialFreedom/styles';
-import lola_card from '../../../../public/images/lola_card.png';
-import orange_card from '../../../../public/images/orange_card.png';
-import terry_card from '../../../../public/images/terry_card.png';
+import fleetcar from '../../../../public/images/fleetcar.png';
+import corporate from '../../../../public/images/corporate.png';
+import bgc_claims from '../../../../public/images/bgc_claims.png';
 import {
   Wrapper,
   Inner,
@@ -51,18 +51,18 @@ const IntroSection = () => {
         <CardsContainer>
           <LeftImage
             className={isHovered ? 'active' : ''}
-            src={orange_card}
-            alt="orange_atm_card"
+            src={corporate}
+            alt="terry_card"
           />
           <MiddleImage
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            src={lola_card}
+            src={bgc_claims}
             alt="blue card"
           />
           <RightImage
             className={isHovered ? 'active' : ''}
-            src={terry_card}
+            src={fleetcar}
             alt="terry card"
           />
         </CardsContainer>
@@ -70,8 +70,8 @@ const IntroSection = () => {
           {edges.map((edge, i) => (
             <Edge key={i}>
               <Title>
-                <Image src={edge.icon} alt="icon" />
-                <MaskText phrases={new Array(edge.point)} tag="h3" />
+                {edge.icon}
+                <MaskText phrases={new Array(edge.title)} tag="h3" />
               </Title>
               <MaskText phrases={new Array(edge.details)} tag="p" />
             </Edge>

@@ -14,8 +14,7 @@ import {
   Previous,
   Next,
 } from './styles';
-import ic_arrow_left from '../../../../public/svgs/ic_arrow_left.svg';
-import ic_arrow_right from '../../../../public/svgs/ic_arrow_right.svg';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { MaskText } from '@/components';
 import { useIsMobile } from '../../../../libs/useIsMobile';
@@ -66,10 +65,10 @@ const JoinSection = () => {
         </TestimonialWrapper>
         <PaginationButtonContainer>
           <Previous onClick={previous}>
-            <Image src={ic_arrow_left} alt="arrow_left" />
+            <ChevronLeft size={24} color="#e30613" />
           </Previous>
           <Next onClick={next}>
-            <Image src={ic_arrow_right} alt="arrow_right" />
+            <ChevronRight size={24} color="#e30613" />
           </Next>
         </PaginationButtonContainer>
       </Inner>

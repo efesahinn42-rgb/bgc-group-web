@@ -1,6 +1,5 @@
-import ic_document_duplicate from '../../../../public/svgs/ic_document_duplicate.svg';
-import ic_identification from '../../../../public/svgs/ic_identification.svg';
-import ic_lock_closed from '../../../../public/svgs/ic_lock_closed.svg';
+import { Copy, IdCard, Lock } from 'lucide-react';
+import React from 'react';
 
 // For desktop
 export const desktopHeaderPhrase = ["Sizin İçin Geliştirdik,", 'Özel Hizmet Paketleri'];
@@ -20,21 +19,21 @@ export const mobileParagraphPhrase = [
 
 export const edges = [
   {
-    point: 'Hızlı Çözüm Odaklı',
+    title: 'Şeffaf Süreç Yönetimi',
     details:
-      'Gelişmiş altyapımız sayesinde operasyonel süreçlerinizi hızlandırıyor, vakit kayıplarının önüne geçiyoruz.',
-    icon: ic_document_duplicate,
+      'Araç kiralama ve sigorta süreçlerinizde gizli maliyetler olmadan, tamamen şeffaf ve anlaşılır prosedürlerle çalışıyoruz.',
+    icon: React.createElement(Copy, { size: 32, color: '#e30613' }),
   },
   {
-    point: 'Size Özel Tasarlanmış',
+    title: 'Kişiselleştirilmiş Çözümler',
     details:
-      'Firmanızın ihtiyaçlarına uygun olarak şekillendirilebilen esnek filo ve sigorta anlaşmaları.',
-    icon: ic_identification,
+      'Sektörünüze, bütçenize ve ihtiyaçlarınıza özel filo yönetim ve asistans paketleri oluşturarak maksimum verim sağlıyoruz.',
+    icon: React.createElement(IdCard, { size: 32, color: '#e30613' }),
   },
   {
-    point: 'Maksimum Güvenlik',
+    title: 'Güvenilir Hizmet',
     details:
-      'Tüm süreçlerinizde veri güvenliği ve hukuki korumayı ön planda tutarak huzurunuzu garanti ediyoruz.',
-    icon: ic_lock_closed,
+      'Yılların getirdiği tecrübe ve sektörün öncü markalarıyla yaptığımız işbirlikleri sayesinde işinizi güvenle büyütün.',
+    icon: React.createElement(Lock, { size: 32, color: '#e30613' }),
   },
 ];

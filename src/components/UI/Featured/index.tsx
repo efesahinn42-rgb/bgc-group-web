@@ -1,9 +1,7 @@
 'use client';
 import Image from 'next/image';
-import big_banner from '../../../../public/images/big_banner.png';
-import featured_mobile_banner from '../../../../public/images/featured_mobile_banner.png';
+import corporate from '../../../../public/images/corporate.png';
 import ParallaxText from '@/components/Common/ParallaxImages';
-import companies_image from '../../../../public/images/companies.png';
 import { Wrapper, Inner, ImageContainer, ParallaxImages, Div, BrandList, BrandItem } from './styles';
 import RevealCover from '@/components/Common/RevealCover';
 import { useIsMobile } from '../../../../libs/useIsMobile';
@@ -36,12 +34,12 @@ const Featured = () => {
           >
             {isMobile ? (
               <Image
-                src={featured_mobile_banner}
+                src={corporate}
                 alt="featured_mobile_banner"
                 fill
               />
             ) : (
-              <Image src={big_banner} alt="big_banner" fill />
+              <Image src={corporate} alt="big_banner" fill />
             )}
           </Div>
         </ImageContainer>

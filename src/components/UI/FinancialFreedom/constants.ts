@@ -1,7 +1,6 @@
 
-import ic_banknotes from '../../../../public/svgs/ic_banknotes.svg';
-import ic_circle_stack from '../../../../public/svgs/ic_circle_stack.svg';
-import ic_arrows_left_right from '../../../../public/svgs/ic_arrows_right_left.svg';
+import { Banknote, Layers, Repeat } from 'lucide-react';
+import React from 'react';
 
 // For desktop
 export const desktopHeaderPhrase = ['Neden BGC Group?', 'Size Özel Çözümler'];
@@ -38,18 +37,18 @@ export const edges = [
     point: 'Esnek ve Hızlı Çözümler',
     details:
       'Firmanızın bütçesine ve ihtiyaçlarına en uygun esnek kiralama ve sigorta seçenekleri.',
-    icon: ic_banknotes,
+    icon: React.createElement(Banknote, { size: 32, color: '#e30613' }),
   },
   {
     point: 'Geniş Hizmet Ağı',
     details:
       'Türkiye çapında yaygın servis ve anlaşmalı kurum ağıyla her zaman yanınızdayız.',
-    icon: ic_circle_stack,
+    icon: React.createElement(Layers, { size: 32, color: '#e30613' }),
   },
   {
     point: '7/24 Kesintisiz Destek',
     details:
       'Günün her saati ulaşabileceğiniz uzman müşteri hizmetleri ve yol yardım ekibi.',
-    icon: ic_arrows_left_right,
+    icon: React.createElement(Repeat, { size: 32, color: '#e30613' }),
   },
 ];

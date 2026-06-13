@@ -15,8 +15,7 @@ import RevealCover from '@/components/Common/RevealCover';
 import { Div } from '../Featured/styles';
 import { imageVariants } from '../Featured';
 import { useIsMobile } from '../../../../libs/useIsMobile';
-import financial_freedom_banner from '../../../../public/images/financial_freedom_banner.png';
-import freedom_mobile_banner from '../../../../public/images/freedom_mobile_banner.png';
+import bgc_insurance from '../../../../public/images/bgc_insurance.png';
 import {
   desktopBriefNotePhrase,
   desktopHeaderPhrase,
@@ -55,9 +54,9 @@ const FinancialFreedom = () => {
             viewport={{ amount: 0.25, once: true }}
           >
             {isMobile ? (
-              <Image src={freedom_mobile_banner} alt="banner_img" fill />
+              <Image src={bgc_insurance} alt="banner_img" fill />
             ) : (
-              <Image src={financial_freedom_banner} alt="banner_img" fill />
+              <Image src={bgc_insurance} alt="banner_img" fill />
             )}
           </Div>
         </BannerCtn>
@@ -65,7 +64,7 @@ const FinancialFreedom = () => {
           {edges.map((edge, i) => (
             <Edge key={i}>
               <Title>
-                <Image src={edge.icon} alt="icon" />
+                {edge.icon}
                 <MaskText phrases={new Array(edge.point)} tag="h3" />
               </Title>
               <MaskText phrases={new Array(edge.details)} tag="p" />
