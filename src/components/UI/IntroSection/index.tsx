@@ -11,9 +11,7 @@ import {
   Header,
   HeaderMainText,
   CardsContainer,
-  LeftImage,
-  MiddleImage,
-  RightImage,
+  MainImageCtn,
 } from './styles';
 import { MaskText } from '@/components';
 import { useIsMobile } from '../../../../libs/useIsMobile';
@@ -49,22 +47,9 @@ const IntroSection = () => {
           </HeaderMainText>
         </Header>
         <CardsContainer>
-          <LeftImage
-            className={isHovered ? 'active' : ''}
-            src={corporate}
-            alt="terry_card"
-          />
-          <MiddleImage
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            src={bgc_claims}
-            alt="blue card"
-          />
-          <RightImage
-            className={isHovered ? 'active' : ''}
-            src={fleetcar}
-            alt="terry card"
-          />
+          <MainImageCtn>
+            <Image src={corporate} alt="Vizyonumuz" />
+          </MainImageCtn>
         </CardsContainer>
         <Edges>
           {edges.map((edge, i) => (
