@@ -15,7 +15,7 @@ import RevealCover from '@/components/Common/RevealCover';
 import { Div } from '../Featured/styles';
 import { imageVariants } from '../Featured';
 import { useIsMobile } from '../../../../libs/useIsMobile';
-import bgc_insurance from '../../../../public/images/bgc_insurance.png';
+import bgc_fleet from '../../../../public/images/bgc_fleet.png';
 import {
   desktopBriefNotePhrase,
   desktopHeaderPhrase,
@@ -54,9 +54,9 @@ const FinancialFreedom = () => {
             viewport={{ amount: 0.25, once: true }}
           >
             {isMobile ? (
-              <Image src={bgc_insurance} alt="banner_img" fill />
+              <Image src={bgc_fleet} alt="banner_img" fill />
             ) : (
-              <Image src={bgc_insurance} alt="banner_img" fill />
+              <Image src={bgc_fleet} alt="banner_img" fill />
             )}
           </Div>
         </BannerCtn>
