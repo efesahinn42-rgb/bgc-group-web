@@ -43,6 +43,7 @@ export const LogoContainer = styled.div`
   @media (max-width: 768px) {
     img {
       transform: scale(1.8) translateX(25px) !important;
+      pointer-events: none;
     }
   }
 `;
@@ -50,7 +51,10 @@ export const LogoContainer = styled.div`
 export const BurgerMenu = styled.div`
   display: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
+  position: relative;
+  z-index: 101;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 768px) {
     display: flex;
