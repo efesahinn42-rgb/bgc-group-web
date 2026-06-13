@@ -41,8 +41,11 @@ export const LogoContainer = styled.div`
   }
 
   @media (max-width: 768px) {
+    flex: 1;
+    justify-content: center;
+
     img {
-      transform: scale(1.8) translateX(25px) !important;
+      transform: scale(2.2) translateX(0px) !important;
       pointer-events: none;
     }
   }
