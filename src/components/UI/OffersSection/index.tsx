@@ -21,7 +21,7 @@ import {
 const OffersSection = () => {
   const isMobile = useIsMobile();
   return (
-    <Wrapper>
+    <Wrapper id="hizmetler">
       <Inner>
         <Header>
           <MaskText phrases={desktopHeaderPhrases} tag="h1" />

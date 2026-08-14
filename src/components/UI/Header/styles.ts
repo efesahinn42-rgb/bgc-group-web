@@ -139,7 +139,7 @@ export const MobileMenuContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.75rem;
-    background: var(--emerald);
+    background: var(--brand);
     margin: 5rem 1rem 0;
     padding: 2.5rem 2rem;
     border-radius: 1.25rem;

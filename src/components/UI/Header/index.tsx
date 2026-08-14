@@ -30,7 +30,7 @@ const Header = () => {
         {/* Desktop Nav */}
         <Nav>
           {links.map((link, i) => (
-            <AnimatedLink key={i} title={link.linkTo} />
+            <AnimatedLink key={i} title={link.linkTo} href={link.url} />
           ))}
         </Nav>
 
@@ -61,7 +61,12 @@ const Header = () => {
         <MobileMenuOverlay onClick={() => setIsOpen(false)}>
           <MobileMenuContent onClick={(e) => e.stopPropagation()}>
             {links.map((link, i) => (
-              <AnimatedLink key={i} title={link.linkTo} />
+              <AnimatedLink
+                key={i}
+                title={link.linkTo}
+                href={link.url}
+                onClick={() => setIsOpen(false)}
+              />
             ))}
             <div className="mobile-cta">
               <a href="tel:08508880155" style={{ textDecoration: 'none' }}>

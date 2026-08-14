@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bgcgroup.com.tr'),
   title: 'BGC Group | Filo, Sigorta ve Asistans Hizmetleri',
   description: 'BGC Group; yenilikçi ve güvenilir çözümleriyle filo kiralama, sigorta çözümleri ve asistans hizmetlerinde yanınızda.',
   icons: {

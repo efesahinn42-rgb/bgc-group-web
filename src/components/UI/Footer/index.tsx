@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import raft_footer_logo from '../../../../public/svgs/raft_footer_logo.svg';
 import qr_code from '../../../../public/svgs/qr_code.svg';
 import ic_google_playstore from '../../../../public/svgs/ic_google_playstore.svg';
 import ic_baseline_apple from '../../../../public/svgs/ic_baseline_apple.svg';
@@ -45,7 +44,7 @@ import {
 
 const Footer = () => {
   return (
-    <Wrapper>
+    <Wrapper id="iletisim">
       <Inner>
         <FooterLogo>
           <Image src="/images/bgc group logo_png.png" alt="bgc_group_logo" width={300} height={100} style={{ objectFit: 'contain' }} />

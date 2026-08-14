@@ -22,23 +22,23 @@ export const menu = {
 };
 export const links = [
   {
-    url: '/',
+    url: '#',
     linkTo: 'Ana Sayfa',
   },
   {
-    url: '/',
+    url: '#hizmetler',
     linkTo: 'Filo Kiralama',
   },
   {
-    url: '/',
+    url: '#hizmetler',
     linkTo: 'Sigorta',
   },
   {
-    url: '/',
+    url: '#hizmetler',
     linkTo: 'Asistans Hizmetleri',
   },
   {
-    url: '/',
+    url: '#iletisim',
     linkTo: 'İletişim',
   },
 ];
