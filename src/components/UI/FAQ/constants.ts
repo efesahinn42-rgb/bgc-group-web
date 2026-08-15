@@ -1,3 +1,5 @@
+import type { Variants } from 'framer-motion';
+
 type FAQItem = {
   question: string;
   answer: string;
@@ -5,7 +7,7 @@ type FAQItem = {
 
 export const desktopHeaderPhrase = ['Sıkça Sorulan', 'Sorular'];
 export const mobileHeaderPhrase = ['Sıkça', 'Sorulan', 'Sorular'];
-export const animate = {
+export const animate: Variants = {
   initial: {
     y: '100%',
     opacity: 0,

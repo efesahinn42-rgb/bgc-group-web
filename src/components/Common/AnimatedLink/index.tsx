@@ -1,20 +1,7 @@
 'use client';
 import { useState } from 'react';
+import type { Variants } from 'framer-motion';
 import { Div, Word, Span, AbsoluteContainer } from './styles';
-
-type AnimationProps = {
-  rest: {
-    y: number;
-  };
-  hover: {
-    y: number;
-    transition: {
-      duration: number;
-      ease: number[];
-      type: string;
-    };
-  };
-};
 
 const titleAnimation = {
   rest: {
@@ -29,7 +16,7 @@ const titleAnimation = {
   },
 };
 
-const letterAnimation = {
+const letterAnimation: Variants = {
   rest: {
     y: 0,
   },
@@ -43,7 +30,7 @@ const letterAnimation = {
   },
 };
 
-const letterAnimationTwo = {
+const letterAnimationTwo: Variants = {
   rest: {
     y: 25,
   },
@@ -104,7 +91,7 @@ const AnimatedWord = ({
   isHovered,
 }: {
   title: string;
-  animations: AnimationProps;
+  animations: Variants;
   isHovered: boolean;
 }) => (
   <Word

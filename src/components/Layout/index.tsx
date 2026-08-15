@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { ReactLenis } from 'lenis/react';
 import StyledComponentsRegistry from '../../../libs/registry';
 import { GlobalStyles } from './GlobalStyles';
 import { Footer, Header, SplashWrapper } from '..';
@@ -10,7 +10,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <StyledComponentsRegistry>
       <ReactLenis
         root
-        easing={(t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))}
+        options={{
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        }}
       >
         <GlobalStyles />
         <SplashWrapper />

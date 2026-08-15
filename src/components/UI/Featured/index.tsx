@@ -1,11 +1,12 @@
 'use client';
 import Image from 'next/image';
+import type { Variants } from 'framer-motion';
 import corporate from '../../../../public/images/corporate.png';
 import ParallaxText from '@/components/Common/ParallaxImages';
 import { Wrapper, Inner, ImageContainer, ParallaxImages, Div, BrandList, BrandItem } from './styles';
 import RevealCover from '@/components/Common/RevealCover';
 import { useIsMobile } from '../../../../libs/useIsMobile';
-export const imageVariants = {
+export const imageVariants: Variants = {
   hidden: {
     scale: 1.6,
   },
