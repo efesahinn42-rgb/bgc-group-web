@@ -13,6 +13,7 @@ const linksArr = [
   {
     title: 'Hizmetler',
     links: ['Filo Kiralama', 'Sigorta', 'Asistans'],
+    href: '#hizmetler',
   },
   {
     title: 'İletişim',
@@ -68,9 +69,17 @@ const Footer = () => {
                 <GridColumn key={i}>
                   <h3>{l.title}</h3>
                   <LinksContainer>
-                    {l.links.map((link, i) => (
-                      <li key={i}>{link}</li>
-                    ))}
+                    {l.links.map((link, i) =>
+                      'href' in l ? (
+                        <li key={i}>
+                          <a href={l.href} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            {link}
+                          </a>
+                        </li>
+                      ) : (
+                        <li key={i}>{link}</li>
+                      )
+                    )}
                   </LinksContainer>
                 </GridColumn>
               ))}
