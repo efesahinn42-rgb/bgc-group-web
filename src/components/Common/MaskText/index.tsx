@@ -1,10 +1,10 @@
 'use client';
 import { Body, LineMask } from './styles';
-import { useInView, motion } from 'framer-motion';
+import { useInView, motion, type Variants } from 'framer-motion';
 import { useRef } from 'react';
 
 const MaskText = ({ phrases, tag }: { phrases: string[]; tag: string }) => {
-  const animate = {
+  const animate: Variants = {
     initial: {
       y: '100%',
     },

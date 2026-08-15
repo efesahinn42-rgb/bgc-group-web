@@ -1,7 +1,7 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import styled from 'styled-components';
-const variant = {
+const variant: Variants = {
   hidden: {
     width: '100%',
   },
