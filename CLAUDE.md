@@ -28,37 +28,34 @@ libs/registry.tsx          → styled-components SSR registry
 libs/useIsMobile.tsx       → mobil breakpoint hook'u
 ```
 
-## Bilinen Sorunlar / Teknik Borç (2026-08-14 analizi)
-- **Header nav linkleri işlevsiz:** `Header/constants.ts`'teki tüm `links` girdilerinin
-  `url: '/'` değeri var VE `AnimatedLink` bileşeni `url` prop'unu hiç kullanmıyor,
-  sadece `title` alıyor — yani üst menüdeki "Filo Kiralama", "Sigorta", "Asistans
-  Hizmetleri", "İletişim" linkleri tıklanınca hiçbir yere gitmiyor/scroll etmiyor.
-  Düzeltme: ya ilgili section'lara `id` verip `AnimatedLink`'i `<a href="#...">`
-  yapacak şekilde güncelle, ya da linkleri gerçek route'lara bağla.
-- **Font, resmi olmayan bir CDN'den çekiliyor:** `globals.css` içinde
-  `@import url('https://fonts.cdnfonts.com/css/sf-pro-display')` — SF Pro Apple'ın
-  fontu, bu üçüncü parti CDN üzerinden servis edilmesi hem performans (render-blocking
-  @import, önbellek yönetimi Next.js dışında) hem lisans açısından riskli. `next/font`
-  ile self-host edilen bir alternatif (ör. Inter, Geist) veya lisanslı bir font'a
-  geçilmeli.
-- **Yanıltıcı CSS değişken adları:** `GlobalStyles.tsx` içinde `--green` ve
-  `--emerald` değişkenleri aslında kırmızı (`#E30613`) tutuyor — kod okunabilirliğini
-  bozuyor, `--brand` / `--primary` gibi anlamlı isimlere çevrilmeli.
-- **`package.json` `name: "chatbot"`** — kopyalanan boilerplate'ten kalma, `bgc-group-web`
-  olarak düzeltilmeli.
-- **`FinancilaFreedom` yazım hatası** (`components/index.ts` ve `page.tsx`) — klasör adı
-  `FinancialFreedom` doğru ama export/import adı yanlış yazılmış. Kod çalışıyor ama
-  gelecekte refactor sırasında kafa karıştırabilir.
-- **Tüm layout `'use client'`:** `Layout/index.tsx` (dolayısıyla Header/Footer/Splash
-  dahil neredeyse tüm ağaç) client component. Tek sayfalık, ağır animasyonlu bir site
-  için makul bir tercih ama ileride yeni statik sayfalar (portal, bayi vb.) eklenirse
-  server component'lerden yararlanmak için ayrım gözden geçirilmeli.
-- **Next.js 13.5.4 eski** — güncel Next.js 15.x'e göre ciddi gecikmiş; App Router
-  temel API'leri stabil olduğu için kritik değil ama güvenlik/performans
-  iyileştirmeleri için güncelleme planlanmalı.
-- **Test yok, sitemap.xml/robots.txt yok, ortam değişkeni (.env) kullanılmıyor** — bu
-  boyutta bir statik tanıtım sitesi için sitemap/robots eksikliği SEO açısından
-  iyileştirilebilir bir nokta (yeni sayfalar/subdomain eklendikçe daha önemli hale gelir).
+## Bilinen Sorunlar / Teknik Borç (2026-09-11 güncellendi)
+> Not: Bu bölümdeki 2026-08-14 tarihli notların çoğu artık YANLIŞ/bayattı — proje
+> o tarihten sonra epey güncellenmiş (Next 15.5.23, sitemap/robots eklenmiş, font/CSS
+> değişken sorunları çözülmüş, package.json adı düzeltilmiş). Güncel liste:
+
+- [x] ~~Header nav linkleri işlevsiz~~ — kontrol edildi, ÇALIŞIYOR: `AnimatedLink` href'i
+  gerçekten kullanıyor, `#hizmetler` (OffersSection) ve `#iletisim` (Footer) gerçek
+  section id'lerine bağlı. Tek kozmetik not: "Filo Kiralama/Sigorta/Asistans" 3 menü
+  öğesi hepsi aynı `#hizmetler`'e gidiyor (ayrı hizmet sayfaları olsa daha iyi olurdu).
+- [x] ~~Font CDN riski~~ — çözülmüş, `cdnfonts.com` import'u yok artık.
+- [x] ~~Yanıltıcı --green/--emerald~~ — `--brand` olarak düzeltilmiş.
+- [x] ~~package.json name "chatbot"~~ — `bgc-group-web` olarak düzeltilmiş.
+- [x] **Hero'daki tek CTA ölüydü** (`GetStartedButton` varsayılan `href="/"`) — WhatsApp'a
+  (`wa.me/908508880155`) bağlandı (2026-09-11).
+- [x] **Kritik CVE** (next/sharp) — `next` 15.5.23→15.5.25, `sharp`→latest güncellendi.
+  `postcss`'in kalan açığı BİLEREK atlandı: düzeltmesi `next@16.3.4`'e zorluyor, o sürüm
+  Vercel'in git-build pipeline'ında bilinen bir hatayla (nft.json ENOENT) deploy'u
+  kırıyor — detay için konya-kebap-evi projesinin CLAUDE.md'sine bakın. postcss açığı
+  build-time bir araç sorunu, kullanıcı girdisiyle tetiklenmiyor, düşük gerçek risk.
+- [ ] **`JoinSection`'daki referanslar sahte** — `JoinSection/constants.ts:10-45`:
+  "Ahmet Yılmaz/Ayşe Kaya/Mehmet Demir", 2 kaydın metni birebir aynı, hepsi aynı
+  `corporate.png` stok avatarı kullanıyor. Kaldırılıp gerçek müşteri referanslarıyla
+  değiştirilmeli (henüz dokunulmadı).
+- [ ] KVKK/Gizlilik/Çerez sayfası yok, JSON-LD (Organization/LocalBusiness/FAQPage) yok,
+  OG görseli 512x512 favicon (gerçek 1200x630 değil), mobil sticky CTA çubuğu yok,
+  `public/images/`'de ~12MB sıkıştırılmamış PNG var — henüz dokunulmadı.
+- Next.js 15.5.25 (App Router), test yok — bu boyuttaki statik tanıtım sitesi için
+  kabul edilebilir, kritik değil.
 
 ## Domain / DNS
 - METUnic panelinden yönetiliyor (nameserver METUnic'te değil, DNS kayıtları
