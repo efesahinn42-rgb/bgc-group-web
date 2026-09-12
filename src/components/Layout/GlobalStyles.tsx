@@ -25,7 +25,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--Background);
     color: var(--white);
-    scroll-snap-type: y mandatory;
+
+    @media (max-width: 47.9375rem) {
+      padding-bottom: 3.5rem;
+    }
 
     &::-webkit-scrollbar {
       width: 0.5rem;

@@ -1,5 +1,6 @@
 import {
   FAQ,
+  FAQStructuredData,
   Featured,
   FinancialFuture,
   FinancialFreedom,
@@ -12,6 +13,7 @@ import {
 export default function Home() {
   return (
     <main>
+      <FAQStructuredData />
       <HeroSection />
       <Featured />
       <OffersSection />

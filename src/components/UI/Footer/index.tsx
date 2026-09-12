@@ -8,7 +8,8 @@ import ic_copyright from '../../../../public/svgs/ic_copyright.svg';
 const linksArr = [
   {
     title: 'Kurumsal',
-    links: ['Hakkımızda', 'Kariyer', 'Basın'],
+    links: ['Gizlilik Politikası', 'KVKK', 'Çerez Politikası'],
+    hrefs: ['/gizlilik-politikasi', '/kvkk', '/cerez-politikasi'],
   },
   {
     title: 'Hizmetler',
@@ -69,17 +70,18 @@ const Footer = () => {
                 <GridColumn key={i}>
                   <h3>{l.title}</h3>
                   <LinksContainer>
-                    {l.links.map((link, i) =>
-                      'href' in l ? (
+                    {l.links.map((link, i) => {
+                      const linkHref = 'hrefs' in l && l.hrefs ? l.hrefs[i] : 'href' in l ? l.href : undefined;
+                      return linkHref ? (
                         <li key={i}>
-                          <a href={l.href} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          <a href={linkHref} style={{ color: 'inherit', textDecoration: 'none' }}>
                             {link}
                           </a>
                         </li>
                       ) : (
                         <li key={i}>{link}</li>
-                      )
-                    )}
+                      );
+                    })}
                   </LinksContainer>
                 </GridColumn>
               ))}

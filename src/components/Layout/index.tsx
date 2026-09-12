@@ -4,6 +4,7 @@ import { ReactLenis } from 'lenis/react';
 import StyledComponentsRegistry from '../../../libs/registry';
 import { GlobalStyles } from './GlobalStyles';
 import { Footer, Header, SplashWrapper } from '..';
+import MobileStickyCTA from '../UI/MobileStickyCTA';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -20,6 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Header />
           {children}
           <Footer />
+          <MobileStickyCTA />
         </div>
       </ReactLenis>
     </StyledComponentsRegistry>

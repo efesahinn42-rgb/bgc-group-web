@@ -50,10 +50,22 @@ libs/useIsMobile.tsx       → mobil breakpoint hook'u
 - [ ] **`JoinSection`'daki referanslar sahte** — `JoinSection/constants.ts:10-45`:
   "Ahmet Yılmaz/Ayşe Kaya/Mehmet Demir", 2 kaydın metni birebir aynı, hepsi aynı
   `corporate.png` stok avatarı kullanıyor. Kaldırılıp gerçek müşteri referanslarıyla
-  değiştirilmeli (henüz dokunulmadı).
-- [ ] KVKK/Gizlilik/Çerez sayfası yok, JSON-LD (Organization/LocalBusiness/FAQPage) yok,
-  OG görseli 512x512 favicon (gerçek 1200x630 değil), mobil sticky CTA çubuğu yok,
-  `public/images/`'de ~12MB sıkıştırılmamış PNG var — henüz dokunulmadı.
+  değiştirilmeli (henüz dokunulmadı — kullanıcı onayı gerekir).
+- [x] **KVKK/Gizlilik/Çerez sayfaları eklendi** (`/kvkk`, `/gizlilik-politikasi`,
+  `/cerez-politikasi`), footer "Kurumsal" linkleri bunlara bağlandı (önceden linksiz
+  düz metindi), sitemap'e eklendi. KVKK'da ticari unvan/MERSİS `[TODO]` — uydurulmadı.
+  Çerez politikası dürüst: şu an GTM/analitik hiç yok, bu belirtildi.
+- [x] **JSON-LD eklendi** — `Organization` (sitewide, layout.tsx) + `FAQPage` (sadece
+  ana sayfa, `src/components/UI/StructuredData/index.tsx`).
+- [x] **Gerçek OG görseli** — `app/opengraph-image.tsx`, gerçek logodan 1200×630 üretiyor
+  (önceden 512×512 favicon idi).
+- [x] **Mobil sticky CTA çubuğu eklendi** (`UI/MobileStickyCTA`) — Ara / WhatsApp,
+  `Layout`'a global olarak bağlandı.
+- [x] **`scroll-snap-type: y mandatory` kaldırıldı** (`GlobalStyles.tsx`) — html/body
+  üzerinde zorunlu snap mobilde kaydırmayı kilitliyordu (2026-08-14'ten beri flag'liydi,
+  hiç düzeltilmemişti). Mobilde sticky CTA çubuğu için `padding-bottom` eklendi.
+- [x] HSTS header eklendi (`next.config.js`).
+- [ ] `public/images/`'de ~12MB sıkıştırılmamış PNG var — henüz dokunulmadı.
 - Next.js 15.5.25 (App Router), test yok — bu boyuttaki statik tanıtım sitesi için
   kabul edilebilir, kritik değil.
 

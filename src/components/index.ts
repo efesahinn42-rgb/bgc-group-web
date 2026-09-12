@@ -11,3 +11,4 @@ export { default as FAQ } from './UI/FAQ';
 export { default as Footer } from './UI/Footer';
 export { SplashWrapper } from './UI/Splash/SplashWrapper';
 export { default as MaskText } from './Common/MaskText';
+export { OrganizationStructuredData, FAQStructuredData } from './UI/StructuredData';
